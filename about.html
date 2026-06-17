@@ -4,135 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Azzubair | مَن أنا</title>
-  <meta name="description" content="الزبير إبراهيم — مترجم عربي ⇄ إنجليزي، مدرب لغوي للذكاء الاصطناعي، ومصمم رقمي. خريج لغة إنجليزية بمرتبة الشرف (91.23%). معتمد من Anthropic في مجال الذكاء الاصطناعي للمعلمين." />
+  <meta name="description" content="الزبير إبراهيم — مترجم عربي ⇄ إنجليزي ومدرب لغوي للذكاء الاصطناعي. خريج لغة إنجليزية بمرتبة الشرف (91.23%)." />
+  
   <script>
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
     const currentTheme = savedTheme ? savedTheme : (systemPrefersLight ? 'light' : 'dark');
     document.documentElement.setAttribute('data-theme', currentTheme);
   </script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* ── شارة Anthropic ── */
-    .anthropic-cert-card {
-      background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(99,102,241,0.12));
-      border: 1px solid rgba(99,102,241,0.35);
-      border-radius: 20px;
-      padding: 1.2rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 1.5rem;
-      width: fit-content;
-      transition: all 0.3s ease;
-      text-decoration: none !important;
-    }
-    .anthropic-cert-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(99,102,241,0.6);
-      box-shadow: 0 8px 24px rgba(99,102,241,0.2);
-    }
-    .anthropic-cert-card .cert-icon {
-      width: 44px; height: 44px;
-      background: rgba(99,102,241,0.15);
-      color: #818CF8;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
-    .anthropic-cert-card .cert-text strong {
-      display: block;
-      color: #818CF8;
-      font-size: 0.95rem;
-      font-weight: bold;
-    }
-    .anthropic-cert-card .cert-text span {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    /* ── شبكة الكفاءات التقنية ── */
-    .tech-skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .tech-skill-card {
-      background: var(--bg-glass);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--border-glass);
-      border-radius: 20px;
-      padding: 1.5rem;
-      box-shadow: var(--shadow-glass);
-      transition: all 0.3s ease;
-    }
-    .tech-skill-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--border-primary);
-      box-shadow: var(--shadow-hover);
-    }
-    .tech-skill-card .ts-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 1rem;
-    }
-    .tech-skill-card .ts-icon {
-      width: 42px; height: 42px;
-      background: var(--primary-glass);
-      color: var(--primary);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-      border: 1px solid var(--border-primary);
-    }
-    .tech-skill-card h4 {
-      font-size: 1.05rem;
-      color: var(--text-main);
-      font-weight: bold;
-    }
-    .tech-skill-card .ts-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-    .ts-tag {
-      background: var(--bg-main);
-      border: 1px solid var(--border-glass);
-      color: var(--text-muted);
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.82rem;
-    }
-
-    /* ── قسم الشهادة الجديد ── */
-    .cert-badge-new {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(16,185,129,0.12);
-      border: 1px solid rgba(16,185,129,0.35);
-      color: #10B981;
-      padding: 3px 12px;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      font-weight: bold;
-      margin-right: 8px;
-      vertical-align: middle;
-    }
-
-    @media (max-width: 768px) {
-      .tech-skills-grid { grid-template-columns: 1fr; }
-      .anthropic-cert-card { width: 100%; }
-    }
-  </style>
 </head>
 <body>
 
+  <!-- شريط التنقل -->
   <nav id="navbar">
     <div class="container">
       <a href="index.html" class="logo">Azzubair</a>
@@ -140,7 +26,7 @@
         <li><a href="index.html">الرئيسية</a></li>
         <li><a href="about.html" class="active">مَن أنا</a></li>
         <li><a href="services.html">الخدمات</a></li>
-        <li><a href="contact.html">التواصل والدَّفع</a></li>
+        <li><a href="contact.html">التواصل والدَّفع</a></li>
       </ul>
       <div class="nav-controls">
         <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
@@ -149,6 +35,7 @@
     </div>
   </nav>
 
+  <!-- عنوان الصفحة -->
   <div class="page-hero">
     <div class="container reveal">
       <h1>مَن أنا</h1>
@@ -159,33 +46,28 @@
   <!-- النبذة الشخصية -->
   <section class="about-hero" style="padding-top: 0; padding-bottom: 30px;">
     <div class="container">
+      
+      <!-- روابط التنقل السريع -->
       <div class="page-nav reveal">
         <a href="#skills">الكفاءات الأساسية</a>
-        <a href="#tech-skills">المهارات التقنية</a>
         <a href="#education">التعليم الأكاديمي</a>
         <a href="#experience">الخبرة المهنية</a>
       </div>
-
+      
       <div class="about-card reveal" style="margin-top: 2rem;">
         <div class="about-card-wrapper">
           <div class="about-text-content">
-            <h2 style="font-family: 'Rakkas', serif !important; color: var(--text-main); font-size: 2.8rem; margin-bottom: 1.5rem; font-weight: 400;">الزُّبَير إبْرَاهِيم</h2>
+            <h2 style="font-family: 'Rakkas', serif !important; color: var(--text-main); font-size: 2.8rem; margin-bottom: 1.5rem; font-weight: 400;">الزُّبَير إبْرَاهِيم</h2>
+            
             <div class="personal-voice">
-              "درست اللغة الإنجليزية لأن اللغة في نظري ليست مجرد أداة تواصل .. بل هي نظام تفكير. وحين بدأت أرصد كيف تُترجم نماذج الذكاء الاصطناعي النصوص العربية وتُجرِّدها من معناها الحقيقي، اتضح لي أن الإشكالية ليست تقنية في جوهرها؛ بل لغوية وثقافية بامتياز. هذا ما يوجِّه عملي في الترجمة والتدريب والتدريس."
+              "درست اللغة الإنجليزية لأن اللغة في نظري ليست مجرد أداة تواصل .. بل هي نظام تفكير. وحين بدأت أرصد كيف تُترجم نماذج الذكاء الاصطناعي النصوص العربية وتُجرِّدها من معناها الحقيقي، اتضح لي أن الإشكالية ليست تقنية في جوهرها؛ بل لغوية وثقافية بامتياز. هذا ما يوجِّه عملي في الترجمة والتدريب والتدريس."
             </div>
+            
             <p>حاصل على بكالوريوس آداب في اللغة الإنجليزية بمرتبة الشرف (91.23%) من جامعة طبرق، بتخصص في اللغويات وعلم الصوتيات ونظريات الترجمة.</p>
-            <p style="margin-top: 1rem;">تجمع مسيرتي بين الأساس الأكاديمي الرصين في اللغويات والتحليل اللساني، والتطبيق الميداني في التدريس والترجمة التحريرية وتعريب البرمجيات وتدريب نماذج الذكاء الاصطناعي لغويًّا. أسعى دائمًا إلى تحويل هذه الكفاءات إلى حلول دقيقة تُلبّي المتطلبات المهنية في البيئات المحلية والدولية.</p>
+            <p style="margin-top: 1rem;">تجمع مسيرتي بين الأساس الأكاديمي الرصين في اللغويات والتحليل اللساني، والتطبيق الميداني في التدريس والترجمة التحريرية وتعريب البرمجيات وتدريب نماذج الذكاء الاصطناعي لغويًّا. أسعى دائمًا إلى تحويل هذه الكفاءات إلى حلول دقيقة تُلبّي المتطلبات المهنية في البيئات المحلية والدولية.</p>
             <p style="margin-top: 1.5rem; font-weight: bold; color: var(--text-main); font-size: 1.1rem; padding-right: 15px; border-right: 4px solid var(--primary);">
               متاح للعمل عن بُعد، بصيغة مستقلة، تعاقدية، أو بدوام كامل.
             </p>
-            <!-- شارة شهادة Anthropic -->
-            <a href="https://verify.skilljar.com/c/nxe2cyns4rhc" target="_blank" rel="noopener" class="anthropic-cert-card">
-              <div class="cert-icon"><i class="fas fa-certificate"></i></div>
-              <div class="cert-text">
-                <strong>AI Fluency for Educators — Anthropic</strong>
-                <span>يونيو 2026 · انقر للتحقق من الشهادة</span>
-              </div>
-            </a>
           </div>
           <div class="about-image-content">
             <img src="profile.jpg" alt="الزبير إبراهيم" loading="lazy" class="about-profile-img" onerror="this.src='https://placehold.co/250x250/1E293B/3B82F6?text=Z'">
@@ -196,11 +78,11 @@
   </section>
 
   <!-- الكفاءات الأساسية -->
-  <section id="skills" style="padding-top: 50px; padding-bottom: 30px;">
+  <section id="skills" style="padding-top: 50px; padding-bottom: 50px;">
     <div class="container">
       <h3 class="subsection-title reveal">الكفاءات الأساسية</h3>
       <div class="terms-grid">
-
+        
         <div class="term-card reveal">
           <div class="term-icon"><i class="fas fa-chalkboard-teacher"></i></div>
           <div class="term-content">
@@ -208,9 +90,8 @@
             <div class="competency-tags" id="comp-1">
               <span class="comp-tag">تدريس الإنجليزية (ESL / EFL / TEFL)</span>
               <span class="comp-tag hidden-tag">التدريس الفردي والجماعي</span>
-              <span class="comp-tag hidden-tag">تدريس الصوتيات (Jolly Phonics)</span>
+              <span class="comp-tag hidden-tag">تدريس الصوتيات</span>
               <span class="comp-tag hidden-tag">التعليم المتمايز وبناء ثقة المتعلم</span>
-              <span class="comp-tag hidden-tag">استراتيجيات التعلم النشط</span>
               <button class="expand-tags-btn" onclick="toggleTags('comp-1', this)"><i class="fas fa-chevron-down"></i> عرض التفاصيل</button>
             </div>
           </div>
@@ -222,10 +103,9 @@
             <h3>الترجمة والخدمات اللغوية</h3>
             <div class="competency-tags" id="comp-2">
               <span class="comp-tag">ترجمة عربي ⇄ إنجليزي والتحرير الثنائي</span>
+              <span class="comp-tag hidden-tag">ترجمة الشاشة (Subtitling) والتعامل مع صيغ SRT, VTT, ASS</span>
               <span class="comp-tag hidden-tag">مراجعة الترجمة الآلية وضبط جودتها (MTPE)</span>
               <span class="comp-tag hidden-tag">التعريب الثقافي وترجمة واجهات البرمجيات</span>
-              <span class="comp-tag hidden-tag">التفريغ النصي الصوتي والترجمة المرئية</span>
-              <span class="comp-tag hidden-tag">توطين ملفات الترجمة (SRT / VTT / ASS)</span>
               <button class="expand-tags-btn" onclick="toggleTags('comp-2', this)"><i class="fas fa-chevron-down"></i> عرض التفاصيل</button>
             </div>
           </div>
@@ -236,12 +116,10 @@
           <div class="term-content">
             <h3>الذكاء الاصطناعي والتقنية</h3>
             <div class="competency-tags" id="comp-3">
-              <span class="comp-tag">تقييم جودة مخرجات النماذج اللغوية الكبرى</span>
-              <span class="comp-tag hidden-tag">هندسة الأوامر (Prompt Engineering)</span>
-              <span class="comp-tag hidden-tag">تحليل أخطاء الذكاء الاصطناعي (عربي/إنجليزي)</span>
-              <span class="comp-tag hidden-tag">استخدام: ChatGPT · Claude · Gemini · Grok · DeepSeek · NotebookLM</span>
-              <span class="comp-tag hidden-tag">حُزم Office وWorkspace ورقمنة المستندات</span>
-              <span class="comp-tag hidden-tag">أنظمة التشغيل: Windows وAndroid وLinux</span>
+              <span class="comp-tag">هندسة الأوامر لـ ChatGPT, Claude, DeepSeek, Gemini</span>
+              <span class="comp-tag hidden-tag">تأمين الشبكات (DNS, DoH/DoT, VPN) وإدارة الروترات</span>
+              <span class="comp-tag hidden-tag">إدارة متقدمة لأنظمة Android (Shizuku) و Windows و Linux</span>
+              <span class="comp-tag hidden-tag">تقييم جودة مخرجات النماذج اللغوية وتحليل الأخطاء</span>
               <button class="expand-tags-btn" onclick="toggleTags('comp-3', this)"><i class="fas fa-chevron-down"></i> عرض التفاصيل</button>
             </div>
           </div>
@@ -259,121 +137,17 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ══ المهارات التقنية (قسم جديد) ══ -->
-  <section id="tech-skills" style="padding-top: 20px; padding-bottom: 50px;">
-    <div class="container">
-      <h3 class="subsection-title reveal">المهارات التقنية</h3>
-
-      <div class="tech-skills-grid">
-
-        <div class="tech-skill-card reveal">
-          <div class="ts-header">
-            <div class="ts-icon"><i class="fas fa-robot"></i></div>
-            <h4>النماذج اللغوية الكبرى وهندسة الأوامر</h4>
-          </div>
-          <div class="ts-tags">
-            <span class="ts-tag">ChatGPT (منذ 2023)</span>
-            <span class="ts-tag">Claude (2024+)</span>
-            <span class="ts-tag">Gemini</span>
-            <span class="ts-tag">DeepSeek</span>
-            <span class="ts-tag">Grok</span>
-            <span class="ts-tag">NotebookLM</span>
-            <span class="ts-tag">Prompt Structuring</span>
-            <span class="ts-tag">Cross-model Evaluation</span>
-          </div>
-        </div>
-
-        <div class="tech-skill-card reveal">
-          <div class="ts-header">
-            <div class="ts-icon"><i class="fas fa-film"></i></div>
-            <h4>توطين الوسائط وملفات الترجمة</h4>
-          </div>
-          <div class="ts-tags">
-            <span class="ts-tag">SRT (SubRip)</span>
-            <span class="ts-tag">VTT (WebVTT)</span>
-            <span class="ts-tag">ASS (Advanced SubStation)</span>
-            <span class="ts-tag">BluRay / WEB / HDTV</span>
-            <span class="ts-tag">H.264 / H.265 (HEVC)</span>
-            <span class="ts-tag">8-bit / 10-bit Colour</span>
-            <span class="ts-tag">1080p / 720p / 480p</span>
-          </div>
-        </div>
-
-        <div class="tech-skill-card reveal">
-          <div class="ts-header">
-            <div class="ts-icon"><i class="fas fa-paint-brush"></i></div>
-            <h4>التصميم الرقمي وتحرير الصور</h4>
-          </div>
-          <div class="ts-tags">
-            <span class="ts-tag">Adobe Photoshop</span>
-            <span class="ts-tag">Adobe Lightroom</span>
-            <span class="ts-tag">Canva</span>
-            <span class="ts-tag">Postershop (Android)</span>
-            <span class="ts-tag">محتوى تعليمي</span>
-            <span class="ts-tag">محتوى تسويقي</span>
-          </div>
-        </div>
-
-        <div class="tech-skill-card reveal">
-          <div class="ts-header">
-            <div class="ts-icon"><i class="fas fa-mobile-alt"></i></div>
-            <h4>خبرة Android المتقدمة</h4>
-          </div>
-          <div class="ts-tags">
-            <span class="ts-tag">Developer Options</span>
-            <span class="ts-tag">Shizuku</span>
-            <span class="ts-tag">Samsung / OneUI</span>
-            <span class="ts-tag">تخصيص النظام</span>
-            <span class="ts-tag">Termux</span>
-            <span class="ts-tag">إدارة التطبيقات المتقدمة</span>
-          </div>
-        </div>
-
-        <div class="tech-skill-card reveal">
-          <div class="ts-header">
-            <div class="ts-icon"><i class="fas fa-network-wired"></i></div>
-            <h4>الشبكات والخصوصية الرقمية</h4>
-          </div>
-          <div class="ts-tags">
-            <span class="ts-tag">VPN Protocols</span>
-            <span class="ts-tag">DNS over HTTPS (DoH)</span>
-            <span class="ts-tag">DNS over TLS (DoT)</span>
-            <span class="ts-tag">NextDNS / AdGuard DNS</span>
-            <span class="ts-tag">TP-Link / Huawei / Xiaomi</span>
-            <span class="ts-tag">IP Addressing</span>
-          </div>
-        </div>
-
-        <div class="tech-skill-card reveal">
-          <div class="ts-header">
-            <div class="ts-icon"><i class="fas fa-desktop"></i></div>
-            <h4>أنظمة التشغيل واستكشاف الأخطاء</h4>
-          </div>
-          <div class="ts-tags">
-            <span class="ts-tag">Windows (Registry / Drivers / Boot)</span>
-            <span class="ts-tag">Linux (Standard Distros)</span>
-            <span class="ts-tag">Dual-boot Setup</span>
-            <span class="ts-tag">Malware Removal</span>
-            <span class="ts-tag">System Optimisation</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- صندوق بحث التخرج -->
+  <!-- صندوق بحث التخرج المضيء -->
   <section style="padding-top: 0; padding-bottom: 30px;">
     <div class="container">
       <div class="research-highlight reveal">
         <i class="fas fa-quote-right"></i>
         <h3>بحث التخرج: "انعدام التكافؤ في ترجمة الذكاء الاصطناعي للغة العناوين"</h3>
-        <p>دراسة نوعية تحليلية رصدت أربع فئات من الإخفاقات المنهجية في ترجمة 20 نصًّا من عناوين الصحف والأخبار الإنجليزية إلى العربية باستخدام أداة OpenL:</p>
+        <p>دراسة نوعية تحليلية رصدت أربع فئات من الإخفاقات المنهجية في ترجمة 20 نصًّا من عناوين الصحف والأخبار الإنجليزية إلى العربية باستخدام أداة OpenL:</p>
         <ul>
           <li>أخطاء معجمية ناجمة عن التفسير الحرفي للغموض والمجاز والتعابير الاصطلاحية.</li>
           <li>قصور تركيبي مردّه التباين البنيوي بين الإنجليزية والعربية.</li>
@@ -387,18 +161,21 @@
     </div>
   </section>
 
-  <!-- المسار الأكاديمي والمهني -->
+  <!-- المسار الأكاديمي والمهني (التصميم التفاعلي الجديد RTL) -->
   <section id="education" style="padding-top: 30px;">
     <div class="container">
       <div class="resume-grid">
-
-        <!-- العمود الأول: الأكاديميا والمؤهلات -->
+        
+        <!-- ================= العمود الأول: الأكاديميا والمؤهلات ================= -->
         <div class="resume-column reveal">
+          
           <div class="resume-header">
             <i class="fas fa-graduation-cap"></i>
             <h3>المسار الأكاديمي والمؤهلات</h3>
           </div>
+          
           <div class="modern-timeline">
+            <!-- المؤهل الجامعي -->
             <div class="modern-timeline__item reveal">
               <div class="modern-timeline__node"></div>
               <div class="modern-timeline__content">
@@ -407,12 +184,12 @@
                 </div>
                 <h4 class="modern-timeline__title">بكالوريوس آداب في اللغة الإنجليزية بمرتبة الشرف</h4>
                 <span class="modern-timeline__subtitle"><i class="fas fa-university"></i> جامعة طبرق</span>
-                <p class="modern-timeline__desc">تخرجت بالترتيب الثاني على الدفعة بمعدل تراكمي 91.23%، بتخصص في اللغويات وعلم الصوتيات ونظريات الترجمة. غطَّى المسار الدراسي تحليل الخطاب، والصرف والنحو المقارن.</p>
+                <p class="modern-timeline__desc">تخرجت بالترتيب الثاني على الدفعة بمعدل تراكمي 91.23%، بتخصص في اللغويات وعلم الصوتيات ونظريات الترجمة. غطَّى المسار الدراسي تحليل الخطاب، والصرف والنحو المقارن.</p>
               </div>
             </div>
           </div>
-
-          <!-- الجوائز -->
+          
+          <!-- الجوائز والتكريمات -->
           <div class="resume-header" style="margin-top: 3rem;">
             <i class="fas fa-award"></i>
             <h3>الجوائز والتكريمات</h3>
@@ -420,7 +197,7 @@
           <div class="awards-container reveal">
             <div class="award-card">
               <div class="award-icon"><i class="fas fa-medal"></i></div>
-              <div class="award-text"><strong>أفضل طالب في السنة</strong> في مادة Reading Comprehension (2023)</div>
+              <div class="award-text"><strong>أفضل طالب في السنة</strong> في مادة Reading Comprehension لسنة (2023)</div>
             </div>
             <div class="award-card">
               <div class="award-icon"><i class="fas fa-trophy"></i></div>
@@ -434,22 +211,11 @@
             <h3>الشهادات الاحترافية</h3>
           </div>
           <div class="awards-container reveal">
-            <div class="award-card">
-              <div class="award-icon" style="background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(59,130,246,0.2)); color: #818CF8; border-color: rgba(99,102,241,0.3);">
-                <i class="fas fa-robot"></i>
-              </div>
-              <div class="award-text">
-                <strong>
-                  AI Fluency for Educators
-                  <span class="cert-badge-new"><i class="fas fa-check-circle"></i> جديد</span>
-                </strong>
-                Anthropic Education · يونيو 2026
-                <br>
-                <a href="https://verify.skilljar.com/c/nxe2cyns4rhc" target="_blank" rel="noopener" style="color: var(--primary); font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; margin-top: 4px;">
-                  <i class="fas fa-external-link-alt"></i> التحقق من الشهادة
-                </a>
-              </div>
-            </div>
+            <!-- شهادة Anthropic الموثقة -->
+            <a href="https://verify.skilljar.com/c/nxe2cyns4rhc" target="_blank" class="award-card" style="text-decoration: none; border: 1px solid rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.05);">
+              <div class="award-icon" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6; border-color: rgba(139, 92, 246, 0.3);"><i class="fas fa-robot"></i></div>
+              <div class="award-text"><strong style="color: #8B5CF6;">AI Fluency for Educators</strong> Anthropic Education (يونيو 2026) <i class="fas fa-external-link-alt" style="font-size: 0.8rem; margin-right: 5px;"></i></div>
+            </a>
             <div class="award-card">
               <div class="award-icon"><i class="fas fa-chalkboard-user"></i></div>
               <div class="award-text"><strong>شهادة حضور ومشاركة</strong> دورة التعلُّم النشِط واستراتيجياته (سبتمبر 2025)</div>
@@ -459,7 +225,7 @@
               <div class="award-text"><strong>شهادة حضور ومشاركة</strong> دورة Jolly Phonics في تعليم الصوتيات (سبتمبر 2025)</div>
             </div>
           </div>
-
+          
           <!-- اللغات -->
           <div class="resume-header" style="margin-top: 3rem;">
             <i class="fas fa-language"></i>
@@ -471,26 +237,29 @@
           </div>
         </div>
 
-        <!-- العمود الثاني: الخبرة المهنية والتطوع -->
+        <!-- ================= العمود الثاني: الخبرة المهنية والتطوع ================= -->
         <div class="resume-column" id="experience">
+          
           <div class="resume-header reveal">
             <i class="fas fa-briefcase"></i>
             <h3>الخبرة المهنية</h3>
           </div>
+          
           <div class="modern-timeline">
-
+            <!-- خبرة 1 -->
             <div class="modern-timeline__item reveal">
               <div class="modern-timeline__node"></div>
               <div class="modern-timeline__content">
                 <div class="modern-timeline__meta">
                   <span class="modern-timeline__date"><i class="fas fa-calendar-alt"></i> يناير 2024 – حتى الآن</span>
                 </div>
-                <h4 class="modern-timeline__title">مترجم مستقل ومقيّم لغوي للذكاء الاصطناعي</h4>
+                <h4 class="modern-timeline__title">مترجم مستقل</h4>
                 <span class="modern-timeline__subtitle"><i class="fas fa-laptop-house"></i> عمل حر عن بُعد</span>
-                <p class="modern-timeline__desc">أُنجز ترجمات متخصصة وأُقيّم مخرجات الترجمة الآلية من حيث التكافؤ الدلالي والدقة الثقافية والملاءمة الاصطلاحية. أُنفّذ مهام التفريغ النصي الصوتي ثنائي اللغة وتوطين ملفات الترجمة المرئية.</p>
+                <p class="modern-timeline__desc">أُنجز ترجمات متخصصة وأُقيّم مخرجات الترجمة الآلية من حيث التكافؤ الدلالي والدقة الثقافية والملاءمة الاصطلاحية. أُنفّذ كذلك مهام التفريغ النصي الصوتي ثنائي اللغة والتعليق على المحتوى.</p>
               </div>
             </div>
 
+            <!-- خبرة 2 -->
             <div class="modern-timeline__item reveal">
               <div class="modern-timeline__node"></div>
               <div class="modern-timeline__content">
@@ -503,6 +272,7 @@
               </div>
             </div>
 
+            <!-- خبرة 3 -->
             <div class="modern-timeline__item reveal">
               <div class="modern-timeline__node"></div>
               <div class="modern-timeline__content">
@@ -512,10 +282,11 @@
                 <h4 class="modern-timeline__title">معلم لغة إنجليزية</h4>
                 <span class="modern-timeline__subtitle"><i class="fas fa-school"></i> مدرسة نخبة المتفوقين</span>
                 <p class="modern-timeline__desc">تدريس المرحلة الابتدائية مع التركيز على مهارات القراءة والتواصل الشفهي. أُطبّق استراتيجيات الاستماع والقراءة لتأسيس المتعلمين في المراحل الأولى.</p>
-                <div class="timeline-note"><i class="fas fa-info-circle"></i> ملاحظة: كلا المنصبَين بدوام جزئي، مما أتاح العمل المتزامن في كلتا المؤسستين إلى جانب النشاط المهني المستقل.</div>
+                <div class="timeline-note"><i class="fas fa-info-circle"></i> ملاحظة التوظيف: كلا المنصبَين بدوام جزئي، مما أتاح العمل المتزامن في كلتا المؤسستين إلى جانب النشاط المهني المستقل.</div>
               </div>
             </div>
 
+            <!-- خبرة 4 -->
             <div class="modern-timeline__item reveal">
               <div class="modern-timeline__node"></div>
               <div class="modern-timeline__content">
@@ -528,6 +299,7 @@
               </div>
             </div>
 
+            <!-- خبرة 5 -->
             <div class="modern-timeline__item reveal">
               <div class="modern-timeline__node"></div>
               <div class="modern-timeline__content">
@@ -536,10 +308,9 @@
                 </div>
                 <h4 class="modern-timeline__title">منسق رقمنة وإدخال بيانات</h4>
                 <span class="modern-timeline__subtitle"><i class="fas fa-database"></i> مدرسة النور</span>
-                <p class="modern-timeline__desc">رقّمت ورفعت السجلات الوظيفية (620 مستندًا لـ 124 موظفًا) إلى المنظومة الوطنية لإدارة بيانات التعليم (sis.moe.gov.ly)، بدقة تامة وضمن المُهَل الزمنية المحددة.</p>
+                <p class="modern-timeline__desc">رقّمت ورفعت السجلات الوظيفية (620 مستندًا) إلى المنظومة الوطنية لإدارة بيانات التعليم، بدقة تامة وضمن المُهَل الزمنية المحددة.</p>
               </div>
             </div>
-
           </div>
 
           <!-- المساهمات التطوعية -->
@@ -547,7 +318,9 @@
             <i class="fas fa-hands-helping"></i>
             <h3>المساهمات التطوعية</h3>
           </div>
+          
           <div class="modern-timeline">
+            <!-- تطوع 1 -->
             <div class="modern-timeline__item reveal">
               <div class="modern-timeline__node"></div>
               <div class="modern-timeline__content">
@@ -555,10 +328,12 @@
                   <span class="modern-timeline__date"><i class="fas fa-calendar-alt"></i> سبتمبر 2024 – حتى الآن</span>
                 </div>
                 <h4 class="modern-timeline__title">مساهم في تعريب Telegram Messenger</h4>
-                <span class="modern-timeline__subtitle"><i class="fab fa-telegram"></i> عمل عن بُعد — translations.telegram.org</span>
-                <p class="modern-timeline__desc">مراجعة وترجمة واجهات المستخدم إلى العربية عبر المنصة الرسمية للتطبيق، بهدف ضمان الدقة الاصطلاحية واتساق المصطلحات في أحد أوسع تطبيقات المراسلة استخدامًا عالميًّا.</p>
+                <span class="modern-timeline__subtitle"><i class="fab fa-telegram"></i> عمل عن بُعد</span>
+                <p class="modern-timeline__desc">مراجعة وترجمة واجهات المستخدم إلى العربية عبر المنصة الرسمية للتطبيق، بهدف ضمان الدقة الاصطلاحية واتساق المصطلحات في أحد أوسع تطبيقات المراسلة استخدامًا عالميًّا.</p>
               </div>
             </div>
+
+            <!-- تطوع 2 -->
             <div class="modern-timeline__item reveal">
               <div class="modern-timeline__node"></div>
               <div class="modern-timeline__content">
@@ -566,8 +341,8 @@
                   <span class="modern-timeline__date"><i class="fas fa-calendar-alt"></i> مارس 2025 – حتى الآن</span>
                 </div>
                 <h4 class="modern-timeline__title">مساهم في تعريب AntennaPod</h4>
-                <span class="modern-timeline__subtitle"><i class="fas fa-podcast"></i> عمل عن بُعد — Weblate</span>
-                <p class="modern-timeline__desc">ترجمة سلاسل التطبيق مفتوح المصدر ضمن بيئة تعاونية منظّمة، مع الالتزام بالمعاجم المرجعية والأدلة الأسلوبية للمشروع.</p>
+                <span class="modern-timeline__subtitle"><i class="fas fa-podcast"></i> عمل عن بُعد</span>
+                <p class="modern-timeline__desc">ترجمة سلاسل التطبيق مفتوح المصدر ضمن بيئة تعاونية، مع الالتزام بالمعاجم المرجعية والأدلة الأسلوبية للمشروع.</p>
               </div>
             </div>
           </div>
@@ -577,11 +352,11 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- الإجراء النهائي (CTA) -->
   <section style="padding-top: 0; padding-bottom: 20px;">
     <div class="container">
       <div class="about-cta reveal">
-        <h2>هل تبحث عن مترجم أو تِقَني ولُغوي متخصِّص؟</h2>
+        <h2>هل تبحث عن مترجم أو تِقَني ولُغوي متخصِّص؟</h2>
         <p style="color: var(--text-muted); margin-bottom: 2rem;">يسعدني تسخير هذه الكفاءات الأكاديمية والخبرة التقنية لإنجاح مشروعك.</p>
         <div class="btn-group" style="justify-content: center;">
           <a href="services.html" class="btn btn-primary"><i class="fas fa-layer-group"></i> استعرض خدماتي</a>
@@ -591,6 +366,7 @@
     </div>
   </section>
 
+  <!-- الفوتر وعداد الزيارات -->
   <footer>
     <div class="container">
       <div class="glass-counter-wrapper reveal">
@@ -606,23 +382,31 @@
     </div>
   </footer>
 
+  <!-- زر العودة للأعلى -->
   <button id="scrollTopBtn" class="scroll-top-btn" aria-label="العودة للأعلى"><i class="fas fa-arrow-up"></i></button>
 
   <script data-goatcounter="https://azzubairx.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script>
+    // دالة عرض وإخفاء تفاصيل المهارات
     function toggleTags(id, btn) {
       const container = document.getElementById(id);
       container.classList.toggle('expanded');
       btn.classList.toggle('active');
-      btn.innerHTML = container.classList.contains('expanded')
-        ? '<i class="fas fa-chevron-up"></i> إخفاء التفاصيل'
-        : '<i class="fas fa-chevron-down"></i> عرض التفاصيل';
+      if(container.classList.contains('expanded')) {
+        btn.innerHTML = '<i class="fas fa-chevron-up"></i> إخفاء التفاصيل';
+      } else {
+        btn.innerHTML = '<i class="fas fa-chevron-down"></i> عرض التفاصيل';
+      }
     }
+
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('hidden'));
+    
     const root = document.documentElement;
     const toggle = document.getElementById('themeToggle');
     const icon = toggle.querySelector('i');
+    
     if (root.getAttribute('data-theme') === 'light') { icon.className = 'fas fa-sun'; } else { icon.className = 'fas fa-moon'; }
+    
     toggle.addEventListener('click', () => {
       const isDark = root.getAttribute('data-theme') === 'dark';
       const newTheme = isDark ? 'light' : 'dark';
@@ -630,19 +414,25 @@
       icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
       localStorage.setItem('theme', newTheme);
     });
+
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     const hamburgerIcon = hamburger.querySelector('i');
     hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); hamburgerIcon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars'; });
+    
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.remove('hidden'); entry.target.classList.add('active'); observer.unobserve(entry.target); } });
     }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
     const scrollBtn = document.getElementById("scrollTopBtn");
-    if (scrollBtn) {
-      window.addEventListener("scroll", () => { scrollBtn.style.display = window.scrollY > 300 ? "block" : "none"; });
+    if(scrollBtn) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) { scrollBtn.style.display = "block"; } else { scrollBtn.style.display = "none"; }
+      });
       scrollBtn.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: "smooth" }); });
     }
+
     async function initGoatCounter() {
       const counterEl = document.getElementById('visit-count');
       if (!counterEl) return;
