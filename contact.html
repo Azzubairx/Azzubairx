@@ -22,6 +22,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+<!-- مكتبة التقويم (Flatpickr) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
 
@@ -220,6 +222,16 @@
     }
     
     initGoatCounter();
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
+  <script>
+    flatpickr("input[type=date]", {
+      locale: "ar", // التعريب
+      disableMobile: "true", // إجبار الهواتف على استخدام تصميم الموقع بدلاً من تصميم الهاتف
+      dateFormat: "Y-m-d",
+      minDate: "today", // منع اختيار أيام من الماضي
+    });
   </script>
 </body>
 </html>
