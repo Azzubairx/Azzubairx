@@ -55,8 +55,20 @@
             <label>الاسم<br><input type="text" name="name" required></label>
             <label>البريد الإلكتروني<br><input type="email" name="email" required></label>
           </div>
-          <label>وصف مختصر للمشروع<br><textarea name="message" rows="5" required></textarea></label>
-          <button type="submit" class="btn btn-primary form-submit">إرسال الطلب</button>
+          <div class="form-group">
+            <label>نوع الخدمة<br>
+              <select name="service" required>
+                <option value="" disabled selected>اختر الخدمة...</option>
+                <option value="ترجمة">الترجمة والخدمات اللغوية</option>
+                <option value="تقنية">التقنية، الذكاء الاصطناعي، والتصميم</option>
+                <option value="أكاديميا">تنسيق الأكاديميا والمستندات</option>
+                <option value="أخرى">أخرى</option>
+              </select>
+            </label>
+            <label>الموعد النهائي للتسليم<br><input type="date" name="deadline" required></label>
+          </div>
+          <label>تفاصيل أو حجم المشروع (مثال: 1500 كلمة، 5 صور، إلخ)<br><textarea name="message" rows="4" required placeholder="يرجى كتابة لمحة عن طلبك هنا..."></textarea></label>
+          <button type="submit" class="btn btn-primary form-submit"><i class="fas fa-paper-plane"></i> طلب تسعيرة سريعة (رد خلال 24 ساعة)</button>
         </form>
 
         <div class="divider"><span>أو تواصل مباشرة عبر</span></div>
