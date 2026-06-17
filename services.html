@@ -2,12 +2,14 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-<!-- تحسينات الأمان (Security Meta Tags) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azzubair | خدماتي</title>
+  
+  <!-- تحسينات الأمان (Security Meta Tags) -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
   <meta name="referrer" content="strict-origin-when-downgrade" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Azzubair | خدماتي</title>
+
   <meta name="description" content="مجموعة متكاملة من الخدمات اللغوية والتقنية، تشمل الترجمة التحريرية، هندسة الأوامر (Prompt Engineering)، استشارات الخصوصية، والتنسيق الأكاديمي والديني." />
   <meta name="keywords" content="ترجمة سrt, تحسين مخرجات ChatGPT, دعم فني android, تصميم صور, prompt engineering عربي, تعريب فيديوهات">
   
@@ -22,9 +24,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  
+  <style>
+    /* ضمان عمل الفلاتر في حال لم يتم تحديث الـ CSS */
+    .category-section { display: none; animation: fadeIn 0.5s ease; }
+    .category-section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
 </head>
 <body>
 
+  <!-- شريط التنقل -->
   <nav id="navbar">
     <div class="container">
       <a href="index.html" class="logo">Azzubair</a>
@@ -44,14 +54,14 @@
   <div class="page-hero">
     <div class="container reveal">
       <h1>الخدمات التي أقدِّمها</h1>
-      <p>مجموعة متكاملة من الحلول اللغوية والتقنية المصممة بدقة، يمكنك تصفحها عبر الفلاتر أدناه.</p>
+      <p>مجموعة متكاملة من الحلول اللغوية والتقنية والأكاديمية المصممة بدقة. يمكنك تصفحها عبر الفلاتر أدناه.</p>
     </div>
   </div>
 
   <section id="services" style="padding-top: 0;">
     <div class="container">
 
-      <!-- أزرار الفلترة الجديدة -->
+      <!-- أزرار الفلترة -->
       <div class="services-filter reveal">
         <button class="filter-btn active" data-filter="all">عرض الكل</button>
         <button class="filter-btn" data-filter="lang">الترجمة واللغات</button>
@@ -59,8 +69,11 @@
         <button class="filter-btn" data-filter="academic">الأكاديميا والبيانات</button>
       </div>
 
-      <!-- الفئة 1: الترجمة واللغات -->
-      <div class="services-grid">
+      <!-- ================= الفئة 1: الترجمة واللغات ================= -->
+      <div class="category-section active" data-category="lang">
+        <h3 class="category-title"><i class="fas fa-globe"></i> الترجمة والخدمات اللغوية</h3>
+        <div class="services-grid">
+          
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-language"></i></div>
             <div class="service-content">
@@ -70,6 +83,7 @@
               <div class="service-price"><span>السعر التقديري</span> 50 - 200 د.ل / 1000 كلمة</div>
             </div>
           </div>
+          
           <div class="service-card">
             <div class="service-badge">الأكثر طلباً <i class="fas fa-fire" style="margin-right: 5px;"></i></div>
             <div class="service-icon"><i class="fas fa-spell-check"></i></div>
@@ -80,18 +94,31 @@
               <div class="service-price"><span>السعر التقديري</span> 30 - 60 د.ل / 1000 كلمة</div>
             </div>
           </div>
+          
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-microphone-alt"></i></div>
+            <div class="service-content">
+              <h3>النسخ النصي (Transcription)</h3>
+              <p>التفريغ النصي الدقيق للمحتوى الصوتي والمرئي بوضوح وسرعة باللغتين العربية والإنجليزية.</p>
+              <span class="why-me">نقل أمين لا يُسقط أي تفصيلة من التسجيل الأصلي.</span>
+              <div class="service-price"><span>السعر التقديري</span> يُحدد بالدقيقة الصوتية</div>
+            </div>
+          </div>
+          
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-headphones"></i></div>
             <div class="service-content">
               <h3>التدريب في علم الصوتيات (Phonetics)</h3>
-              <p>تدريب متخصص في نطق وصوتيات اللغة الإنجليزية البريطانية والأمريكية.</p>
+              <p>تدريب متخصص في نطق وصوتيات اللغة الإنجليزية البريطانية والأمريكية لتصحيح مخارج الحروف.</p>
               <span class="why-me">تأسيس نطق سليم واحترافي مبني على أسس علمية.</span>
-              <div class="service-price"><span>السعر التقديري</span> يحدد حسب الخطة التدريبية</div>
+              <div class="service-price"><span>السعر التقديري</span> يُحدد حسب الخطة التدريبية</div>
             </div>
           </div>
-        </div>
 
-      <!-- الفئة 2: التقنية والتصميم -->
+        </div>
+      </div>
+
+      <!-- ================= الفئة 2: التقنية والتصميم الرقمي ================= -->
       <div class="category-section active" data-category="tech" style="margin-top: 3rem;">
         <h3 class="category-title"><i class="fas fa-microchip"></i> الخدمات التقنية والتصميم الرقمي</h3>
         <div class="services-grid">
@@ -107,33 +134,43 @@
           </div>
 
           <div class="service-card">
+            <div class="service-icon"><i class="fas fa-brain"></i></div>
+            <div class="service-content">
+              <h3>تدريب وتقييم نماذج الذكاء الاصطناعي</h3>
+              <p>ضبط جودة مخرجات نماذج الذكاء الاصطناعي (AI) وتحسين دقتها اللغوية وتوافقها الثقافي.</p>
+              <span class="why-me">تقييم مبني على بحث أكاديمي متخصص وليس مجرد رأي.</span>
+              <div class="service-price"><span>السعر التقديري</span> يُحدد بالاتفاق حسب المشروع</div>
+            </div>
+          </div>
+
+          <div class="service-card">
             <div class="service-icon"><i class="fas fa-closed-captioning"></i></div>
             <div class="service-content">
               <h3>ترجمة الشاشة (Subtitling) ومونتاج الفيديو</h3>
               <p>ترجمة وتعديل ملفات الترجمة (SRT, VTT, ASS) مع فهم تقني لصيغ البث والفيديو.</p>
               <span class="why-me">تزامن دقيق يضمن قراءة مريحة للمشاهد.</span>
-              <div class="service-price"><span>السعر التقديري</span> يحدد بالدقيقة حسب نوع الفيديو</div>
+              <div class="service-price"><span>السعر التقديري</span> يُحدد بالدقيقة حسب نوع الفيديو</div>
             </div>
           </div>
 
           <div class="service-card">
             <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
             <div class="service-content">
-              <h3>التصميم الرقمي ومحتوى منصات التواصل</h3>
-              <p>تصميم الصور والرسوميات باستخدام Postershop و Canva، وصناعة المحتوى المرئي.</p>
+              <h3>التصميم الرقمي ومحتوى المنصات</h3>
+              <p>تصميم الصور والرسوميات باستخدام Photoshop و Canva، وصناعة المحتوى المرئي التعليمي والإعلاني.</p>
               <span class="why-me">معرفة بصرية متقدمة لبناء هوية جذابة.</span>
               <div class="service-price"><span>السعر التقديري</span> 25 - 50 د.ل / للتصميم الواحد</div>
             </div>
           </div>
 
           <div class="service-card">
-            <div class="service-badge">الأكثر طلبًا <i class="fas fa-fire" style="margin-right: 5px;"></i></div>
+            <div class="service-badge">الأكثر طلباً <i class="fas fa-fire" style="margin-right: 5px;"></i></div>
             <div class="service-icon"><i class="fas fa-laptop-medical"></i></div>
             <div class="service-content">
               <h3>الدعم الفني وتحسين أداء الأنظمة</h3>
               <p>حل مشاكل أنظمة Windows و Android، تسريع الأجهزة، وتقديم دعم فني متكامل للمستخدمين والشركات.</p>
               <span class="why-me">تشخيص جذري وسريع للأعطال توفيراً لوقتك.</span>
-              <div class="service-price"><span>السعر التقديري</span> يحدد حسب نوع العطل</div>
+              <div class="service-price"><span>السعر التقديري</span> يُحدد حسب نوع العطل</div>
             </div>
           </div>
 
@@ -147,12 +184,103 @@
             </div>
           </div>
 
+          <div class="service-card">
+            <div class="service-icon"><i class="fab fa-microsoft"></i></div>
+            <div class="service-content">
+              <h3>الحلول المكتبية المتكاملة</h3>
+              <p>إدارة العمليات عبر حُزَم Microsoft Office و Google Workspace، وتنظيم الملفات السحابية.</p>
+              <span class="why-me">تنظيم رقمي يرفع من كفاءة عملك وعمل مؤسستك.</span>
+              <div class="service-price"><span>السعر التقديري</span> يُحدد حسب حجم العمل</div>
+            </div>
+          </div>
+
         </div>
       </div>
+
+      <!-- ================= الفئة 3: الأكاديميا والبيانات ================= -->
+      <div class="category-section active" data-category="academic" style="margin-top: 3rem;">
+        <h3 class="category-title"><i class="fas fa-graduation-cap"></i> الأكاديميا وإدارة البيانات</h3>
+        <div class="services-grid">
+          
+          <div class="service-card">
+            <div class="service-badge">الأكثر طلباً <i class="fas fa-fire" style="margin-right: 5px;"></i></div>
+            <div class="service-icon"><i class="fas fa-book-open"></i></div>
+            <div class="service-content">
+              <h3>تنسيق البحوث الأكاديمية والدينية</h3>
+              <p>تنسيق احترافي وفق الأنماط الدولية (APA وغيرها)، وتنسيق الأبحاث القرآنية والتفسيرية.</p>
+              <span class="why-me">الالتزام الهيكلي الصارم بالمعايير الأكاديمية.</span>
+              <div class="service-price"><span>السعر التقديري</span> يُحدد حسب حجم البحث</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
+            <div class="service-content">
+              <h3>إعداد أوراق الاختبارات والتقييمات</h3>
+              <p>صياغة وتنسيق أوراق الاختبارات والتقييمات الأكاديمية بدقة واحترافية وفق المعايير المعتمدة.</p>
+              <span class="why-me">أوراق خالية من الأخطاء، وجاهزة للطباعة الفورية.</span>
+              <div class="service-price"><span>السعر التقديري</span> يُحدد حسب المادة والمرحلة</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
+            <div class="service-content">
+              <h3>تحرير المحتوى الأكاديمي</h3>
+              <p>كتابة وصياغة المحتوى الأكاديمي المتقدم باللغة الإنجليزية، بمستوى رصين.</p>
+              <span class="why-me">لغة بليغة خالية من الركاكة، تستوفي متطلبات النشر.</span>
+              <div class="service-price"><span>السعر التقديري</span> يُحدد بالاتفاق</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-search"></i></div>
+            <div class="service-content">
+              <h3>البحث المتقدم في المصادر الرقمية</h3>
+              <p>استخراج المحتوى الأكاديمي والمصادر الرقمية النادرة لدعم بحثك العلمي بكفاءة عالية.</p>
+              <span class="why-me">توفير المراجع المهمة في أسرع وقت ممكن.</span>
+              <div class="service-price"><span>السعر التقديري</span> يُحدد حسب نطاق البحث</div>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-file-export"></i></div>
+            <div class="service-content">
+              <h3>إدخال البيانات والتحويل (Data Entry)</h3>
+              <p>تحويل الملفات (PDF/Word/Excel) وإدخال البيانات وإدارة السجلات بدقة عالية.</p>
+              <span class="why-me">تجاوز أخطاء الأدوات المجانية في النصوص العربية (RTL).</span>
+              <div class="service-price"><span>السعر التقديري</span> يُحدد حسب كمية البيانات</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-table"></i></div>
+            <div class="service-content">
+              <h3>بناء جداول احترافية (Excel)</h3>
+              <p>تصميم الجداول التحليلية والمعادلات المتقدمة لتيسير إدارة الأعمال والبيانات الخام.</p>
+              <span class="why-me">تحويل البيانات إلى لوحات تحكم قابلة للقراءة.</span>
+              <div class="service-price"><span>السعر التقديري</span> يُحدد حسب تعقيد الجدول</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-id-card"></i></div>
+            <div class="service-content">
+              <h3>السير الذاتية (ATS) وتصميم الشهادات</h3>
+              <p>صياغة السير الذاتية وتصميم الشهادات والمستندات الرسمية للأفراد والمؤسسات.</p>
+              <span class="why-me">صياغة مبنية على آلية عمل الفرز الآلي وتصاميم بصرية فريدة.</span>
+              <div class="service-price"><span>السعر التقديري</span> يبدأ من 30 د.ل</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <!-- الأسئلة الشائعة FAQ -->
-  <section id="faq">
+  <section id="faq" style="border-top: 1px solid var(--border-glass);">
     <div class="container">
       <div class="section-title reveal">
         <h2>الأسئلة الشائعة</h2>
@@ -233,21 +361,29 @@
     const hamburgerIcon = hamburger.querySelector('i');
     hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); hamburgerIcon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars'; });
 
-    // سكربت فلاتر الخدمات
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const sections = document.querySelectorAll('.category-section');
+    // سكربت فلاتر الخدمات (مُحدّث لضمان الاستجابة السريعة)
+    document.addEventListener("DOMContentLoaded", function() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const sections = document.querySelectorAll('.category-section');
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const target = btn.getAttribute('data-filter');
-        sections.forEach(section => {
-          if (target === 'all' || section.getAttribute('data-category') === target) {
-            section.classList.add('active');
-          } else {
-            section.classList.remove('active');
-          }
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // إزالة كلاس active من كل الأزرار وإضافته للزر المضغوط
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          const target = btn.getAttribute('data-filter');
+          
+          // إظهار وإخفاء الأقسام بناءً على الفلتر المختار
+          sections.forEach(section => {
+            if (target === 'all' || section.getAttribute('data-category') === target) {
+              section.style.display = 'block';
+              setTimeout(() => { section.classList.add('active'); }, 10);
+            } else {
+              section.classList.remove('active');
+              section.style.display = 'none';
+            }
+          });
         });
       });
     });
