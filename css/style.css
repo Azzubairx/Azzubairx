@@ -442,3 +442,87 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 input[type="date"]::-webkit-calendar-picker-indicator:hover {
     opacity: 1;
 }
+
+/* =========================================
+   تحديث المسافات والكفاءات + التقويم الزجاجي
+   ========================================= */
+
+/* إصلاح مسافات شبكة الخدمات والكفاءات */
+.services-grid, .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* تكبير العرض الأدنى لتنسيق أفضل */
+    gap: 2.5rem; /* توحيد المسافات بين البطاقات */
+    align-items: stretch;
+}
+
+/* تحسين شكل بطاقة الكفاءات الأساسية وتوسعة المسافات بداخلها */
+.term-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: var(--shadow-glass);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.term-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+/* تنسيق وسوم الكفاءات (Tags) لتكون عصرية كـ Pills */
+.competency-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px !important;
+    margin-top: auto;
+}
+.comp-tag {
+    background: var(--primary-glass) !important;
+    border: 1px solid var(--border-primary) !important;
+    color: var(--text-main) !important;
+    padding: 8px 16px !important;
+    border-radius: 50px !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* تصميم تقويم Flatpickr الزجاجي (متوافق مع الوضعين الفاتح والداكن) */
+.flatpickr-calendar {
+    background: var(--bg-main) !important;
+    border: 1px solid var(--border-glass) !important;
+    box-shadow: var(--shadow-glass) !important;
+    border-radius: 16px !important;
+    padding: 10px !important;
+    font-family: inherit !important;
+}
+.flatpickr-calendar::before, .flatpickr-calendar::after { display: none !important; } /* إخفاء السهم العلوي */
+.flatpickr-month, .flatpickr-current-month, .flatpickr-weekday {
+    color: var(--text-main) !important;
+    fill: var(--text-main) !important;
+}
+.flatpickr-day {
+    color: var(--text-main) !important;
+    border-radius: 12px !important;
+}
+.flatpickr-day:hover, .flatpickr-day.prevMonthDay:hover, .flatpickr-day.nextMonthDay:hover {
+    background: var(--primary-glass) !important;
+    border-color: var(--primary) !important;
+    color: var(--text-main) !important;
+}
+.flatpickr-day.selected {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px var(--primary-glow) !important;
+}
+.flatpickr-day.flatpickr-disabled {
+    color: var(--text-muted) !important;
+}
+span.flatpickr-weekday {
+    font-weight: bold !important;
+    color: var(--primary) !important;
+}
