@@ -146,42 +146,83 @@
     <div class="container">
       <div class="section-title reveal">
         <h2>معرض الأعمال</h2>
-        <p>نماذج وتطبيقات عملية تعكس الكفاءة التقنية ومهارات التصميم الرقمي.</p>
+        <p>نماذج وتطبيقات عملية تعكس الكفاءة التقنية ومهارات التعامل مع البيانات.</p>
       </div>
       
-      <div class="project-card reveal" style="background: linear-gradient(145deg, var(--bg-glass), rgba(0,0,0,0.1)); backdrop-filter: blur(16px); border: 1px solid var(--border-glass); border-radius: 28px; overflow: hidden; display: flex; flex-wrap: wrap; box-shadow: var(--shadow-glass); transition: transform 0.4s ease, border-color 0.4s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.borderColor='var(--border-glass)'; this.style.transform='translateY(0)';">
+      <!-- حاوية المشاريع -->
+      <div style="display: flex; flex-direction: column; gap: 2.5rem;">
         
-        <!-- تفاصيل المشروع -->
-        <div class="project-content" style="flex: 1; min-width: 300px; padding: 3rem;">
-          <div class="service-badge" style="position: relative; top: 0; right: 0; display: inline-block; margin-bottom: 15px; background: linear-gradient(135deg, #10B981, #059669);">مشروع برمجي تفاعلي</div>
+        <!-- المشروع الأول: نظام التوقيت السواحلي -->
+        <div class="project-card reveal" style="background: linear-gradient(145deg, var(--bg-glass), rgba(0,0,0,0.1)); backdrop-filter: blur(16px); border: 1px solid var(--border-glass); border-radius: 28px; overflow: hidden; display: flex; flex-wrap: wrap; box-shadow: var(--shadow-glass); transition: transform 0.4s ease, border-color 0.4s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.borderColor='var(--border-glass)'; this.style.transform='translateY(0)';">
           
-          <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 1rem; font-weight: bold;">نظام التوقيت السواحلي (Solaris Swahili)</h3>
-          
-          <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
-            تطبيق ويب تفاعلي طوّرته ليقوم بحساب التوقيت السواحلي الأصيل، والذي يعتمد على حركة الشمس الفعلية. يقوم النظام بتحديد طول النهار والليل بدقة متناهية لأي مدينة في العالم، مع تصفير عداد الساعات تلقائيًّا عند لحظتي الشروق والغروب؛ ليعكس التوقيت الفعلي لنهارك وليلك.
-          </p>
-          
-          <div class="project-tags" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 2rem;">
-            <span style="background: var(--bg-main); border: 1px solid var(--border-glass); padding: 6px 14px; border-radius: 50px; font-size: 0.9rem; color: var(--primary);">تطوير ويب (Web App)</span>
-            <span style="background: var(--bg-main); border: 1px solid var(--border-glass); padding: 6px 14px; border-radius: 50px; font-size: 0.9rem; color: var(--primary);">واجهة مستخدم (UI/UX)</span>
-            <span style="background: var(--bg-main); border: 1px solid var(--border-glass); padding: 6px 14px; border-radius: 50px; font-size: 0.9rem; color: var(--primary);">ربط برمجي (API Integration)</span>
+          <!-- تفاصيل المشروع -->
+          <div class="project-content" style="flex: 1; min-width: 300px; padding: 3rem;">
+            <div class="service-badge" style="position: relative; top: 0; right: 0; display: inline-block; margin-bottom: 15px; background: linear-gradient(135deg, #10B981, #059669);">تطبيق ويب (Web App)</div>
+            
+            <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 1rem; font-weight: bold;">نظام التوقيت السواحلي (Solaris Swahili)</h3>
+            
+            <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
+              تطبيق ويب تفاعلي طوّرته ليقوم بحساب التوقيت السواحلي الأصيل، والذي يعتمد على حركة الشمس الفعلية. يقوم النظام بتحديد طول النهار والليل بدقة متناهية لأي مدينة في العالم، مع تصفير عداد الساعات تلقائيًّا عند لحظتي الشروق والغروب.
+            </p>
+            
+            <div class="project-tags" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 2rem;">
+              <span style="background: var(--bg-main); border: 1px solid var(--border-glass); padding: 6px 14px; border-radius: 50px; font-size: 0.9rem; color: var(--primary);">واجهة مستخدم (UI/UX)</span>
+              <span style="background: var(--bg-main); border: 1px solid var(--border-glass); padding: 6px 14px; border-radius: 50px; font-size: 0.9rem; color: var(--primary);">ربط برمجي (API)</span>
+            </div>
+            
+            <a href="https://azzubairx.github.io/solaris-swahili/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 12px 28px; border-radius: 50px;">
+              <i class="fas fa-external-link-alt"></i> استكشف المشروع الحي
+            </a>
           </div>
           
-          <a href="https://azzubairx.github.io/solaris-swahili/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 12px 28px; border-radius: 50px;">
-            <i class="fas fa-external-link-alt"></i> استكشف المشروع الحي
-          </a>
-        </div>
-        
-        <!-- الجانب البصري للمشروع -->
-        <div class="project-image" style="flex: 1; min-width: 300px; background: var(--bg-main); display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--border-glass); position: relative; overflow: hidden; min-height: 300px;">
-          <div style="position: absolute; width: 300px; height: 300px; background: #F59E0B; filter: blur(120px); opacity: 0.15; z-index: 0;"></div>
-          <div style="text-align: center; z-index: 1;">
-            <style>@keyframes slow-spin { 100% { transform: rotate(360deg); } }</style>
-            <i class="fas fa-sun" style="font-size: 6rem; color: #F59E0B; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.4)); animation: slow-spin 25s linear infinite;"></i>
-            <h4 style="font-family: monospace, sans-serif; color: var(--text-main); font-size: 1.4rem; letter-spacing: 2px; direction: ltr;">solaris-swahili</h4>
+          <!-- الجانب البصري للمشروع الأول -->
+          <div class="project-image" style="flex: 1; min-width: 300px; background: var(--bg-main); display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--border-glass); position: relative; overflow: hidden; min-height: 300px;">
+            <div style="position: absolute; width: 300px; height: 300px; background: #F59E0B; filter: blur(120px); opacity: 0.15; z-index: 0;"></div>
+            <div style="text-align: center; z-index: 1;">
+              <style>@keyframes slow-spin { 100% { transform: rotate(360deg); } }</style>
+              <i class="fas fa-sun" style="font-size: 6rem; color: #F59E0B; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.4)); animation: slow-spin 25s linear infinite;"></i>
+              <h4 style="font-family: monospace, sans-serif; color: var(--text-main); font-size: 1.4rem; letter-spacing: 2px; direction: ltr;">SolarisSwahili</h4>
+            </div>
           </div>
         </div>
-        
+
+        <!-- المشروع الثاني: أوقات الصلاة JSON -->
+        <div class="project-card reveal" style="background: linear-gradient(145deg, var(--bg-glass), rgba(0,0,0,0.1)); backdrop-filter: blur(16px); border: 1px solid var(--border-glass); border-radius: 28px; overflow: hidden; display: flex; flex-wrap: wrap-reverse; box-shadow: var(--shadow-glass); transition: transform 0.4s ease, border-color 0.4s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.borderColor='var(--border-glass)'; this.style.transform='translateY(0)';">
+          
+          <!-- الجانب البصري للمشروع الثاني (على اليمين) -->
+          <div class="project-image" style="flex: 1; min-width: 300px; background: var(--bg-main); display: flex; align-items: center; justify-content: center; border-left: 1px solid var(--border-glass); position: relative; overflow: hidden; min-height: 300px;">
+            <div style="position: absolute; width: 300px; height: 300px; background: #8B5CF6; filter: blur(120px); opacity: 0.15; z-index: 0;"></div>
+            <div style="text-align: center; z-index: 1;">
+              <style>
+                @keyframes pulse-glow { 0% { filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.4)); transform: scale(1); } 50% { filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.8)); transform: scale(1.05); } 100% { filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.4)); transform: scale(1); } }
+              </style>
+              <i class="fas fa-code-branch" style="font-size: 5rem; color: #8B5CF6; margin-bottom: 20px; animation: pulse-glow 3s ease-in-out infinite;"></i>
+              <h4 style="font-family: monospace, sans-serif; color: var(--text-main); font-size: 1.4rem; letter-spacing: 2px; direction: ltr;">{ prayer_times }</h4>
+            </div>
+          </div>
+
+          <!-- تفاصيل المشروع -->
+          <div class="project-content" style="flex: 1; min-width: 300px; padding: 3rem;">
+            <div class="service-badge" style="position: relative; top: 0; right: 0; display: inline-block; margin-bottom: 15px; background: linear-gradient(135deg, #8B5CF6, #6D28D9);">مفتوح المصدر (Open Source)</div>
+            
+            <h3 style="font-size: 1.8rem; color: var(--text-main); margin-bottom: 1rem; font-weight: bold;">واجهة بيانات أوقات الصلاة (JSON API)</h3>
+            
+            <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.05rem;">
+              مستودع برمجي مفتوح المصدر يوفر بيانات أوقات الصلاة مهيكلة ومنظمة بصيغة JSON. يهدف المشروع إلى تسهيل عملية ربط تواقيت الصلاة الدقيقة للمطورين ضمن تطبيقاتهم ومواقعهم الإلكترونية بكفاءة ودون أي تعقيد برمجي.
+            </p>
+            
+            <div class="project-tags" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 2rem;">
+              <span style="background: var(--bg-main); border: 1px solid var(--border-glass); padding: 6px 14px; border-radius: 50px; font-size: 0.9rem; color: #8B5CF6;">هيكلة البيانات (JSON)</span>
+              <span style="background: var(--bg-main); border: 1px solid var(--border-glass); padding: 6px 14px; border-radius: 50px; font-size: 0.9rem; color: #8B5CF6;">مستودع (GitHub)</span>
+            </div>
+            
+            <a href="https://github.com/azzubairx/prayer-times-json" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 12px 28px; border-radius: 50px;">
+              <i class="fab fa-github" style="font-size: 1.2rem;"></i> عرض المستودع
+            </a>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </section>
