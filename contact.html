@@ -71,7 +71,9 @@
                 <option value="أخرى">أخرى</option>
               </select>
             </label>
-            <label>الموعد النهائي للتسليم<br><input type="date" name="deadline" required></label>
+            <label>الموعد النهائي للتسليم<br>
+              <input type="text" id="deadline" name="deadline" placeholder="اضغط لاختيار التاريخ..." required style="cursor: pointer; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'16\' height=\'16\' fill=\'%233B82F6\' viewBox=\'0 0 16 16\'><path d=\'M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z\'/></svg>'); background-repeat: no-repeat; background-position: left 15px center; padding-left: 40px;">
+            </label>
           </div>
           <label>تفاصيل أو حجم المشروع (مثال: 1500 كلمة، 5 صور، إلخ)<br><textarea name="message" rows="4" required placeholder="يرجى كتابة لمحة عن طلبك هنا..."></textarea></label>
           <button type="submit" class="btn btn-primary form-submit"><i class="fas fa-paper-plane"></i> طلب تسعيرة سريعة (رد خلال 24 ساعة)</button>
@@ -226,11 +228,12 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
   <script>
-    flatpickr("input[type=date]", {
-      locale: "ar", // التعريب
-      disableMobile: "true", // إجبار الهواتف على استخدام تصميم الموقع بدلاً من تصميم الهاتف
+    flatpickr("#deadline", {
+      locale: "ar",
+      disableMobile: true,
       dateFormat: "Y-m-d",
-      minDate: "today", // منع اختيار أيام من الماضي
+      minDate: "today",
+      dir: "rtl", // ضمان المحاذاة الهندسية الصحيحة للعربية
     });
   </script>
 </body>
