@@ -2,10 +2,21 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-<!-- تحسينات الأمان (Security Meta Tags) -->
+  
+  <!-- تحسينات الأمان (Security Meta Tags) -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
   <meta name="referrer" content="strict-origin-when-downgrade" />
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8294W9LHR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N8294W9LHR');
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Azzubair | التواصل والدفع</title>
   
@@ -22,7 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-<!-- مكتبة التقويم (Flatpickr) -->
+  
+  <!-- مكتبة التقويم (Flatpickr) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
@@ -83,8 +95,7 @@
 
         <div class="contact-links">
           <a href="https://t.me/azzubairx" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-telegram"></i> تليغرام</a>
-          <!-- تحديث الإيميل لـ -->
-          <a href="mailto:azzubair@tuta.io" class="contact-item"><i class="fas fa-envelope"></i> البريد الإلكتروني</a>
+          <a href="mailto:azzubairx@proton.me" class="contact-item"><i class="fas fa-envelope"></i> البريد الإلكتروني</a>
           <a href="https://www.linkedin.com/in/azzubair-husain" target="_blank" rel="noopener noreferrer" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
           <div class="contact-item" style="cursor: default;"><i class="fas fa-map-marker-alt"></i> طبرق، ليبيا</div>
         </div>
@@ -99,64 +110,45 @@
         <p>بعد الاتفاق على تفاصيل المشروع، يمكن تسديد الدفعات بأمان عبر إحدى الوسائل التالية:</p>
       </div>
       <div class="payments-grid">
-        <!-- الدفع النقدي -->
         <div class="payment-card reveal">
           <div class="pay-logo-wrapper"><i class="fas fa-money-bill-wave cash-icon"></i></div>
           <span>الدفع النقدي المباشر</span>
         </div>
         
-        <!-- بطاقة LYPAY -->
         <div class="payment-card reveal">
           <div class="pay-logo-wrapper">
-            <img src="images/lypay.svg" alt="LYPAY" class="pay-logo" loading="lazy">
+            <img src="images/lypay.png" alt="LYPAY" class="pay-logo" loading="lazy">
           </div>
           <span>LYPAY (لي باي)</span>
         </div>
         
-        <!-- بطاقة ONEPAY -->
         <div class="payment-card reveal">
           <div class="pay-logo-wrapper">
-            <img src="images/onepay.svg" alt="ONEPAY" class="pay-logo" loading="lazy">
+            <img src="images/onepay.png" alt="ONEPAY" class="pay-logo" loading="lazy">
           </div>
           <span>ONEPAY (وان باي)</span>
         </div>
         
-        <!-- بطاقة NAB Mobile -->
         <div class="payment-card reveal">
           <div class="pay-logo-wrapper">
-            <img src="images/nab-mobile.svg" alt="NAB Mobile" class="pay-logo" loading="lazy">
+            <img src="images/nab-mobile.png" alt="NAB Mobile" class="pay-logo" loading="lazy">
           </div>
           <span>NAB Mobile (محليًّا)</span>
         </div>
         
-        <!-- بطاقة Binance -->
         <div class="payment-card reveal">
           <div class="pay-logo-wrapper">
-            <img src="images/binance.svg" alt="Binance" class="pay-logo" style="width: 55px;" loading="lazy">
+            <img src="images/binance.png" alt="Binance" class="pay-logo" style="width: 55px;" loading="lazy">
           </div>
           <span>Binance (دوليًّا)</span>
         </div>
-
       </div>    
     </div>
   </section>
 
+  <!-- الفوتر المحدث -->
   <footer>
     <div class="container">
-      <!-- 1. عداد الزيارات المصغّر -->
-      <div class="glass-counter-wrapper reveal">
-        <div class="glass-counter" title="إجمالي الزيارات">
-          <div class="counter-data">
-            <span class="counter-label">زيارات الموقع:</span>
-            <span class="counter-number" id="visit-count"><i class="fas fa-spinner fa-spin" style="font-size: 0.85rem;"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2. الخط الفاصل -->
-      <div class="footer-divider"></div>
-
-      <!-- 3. نص الحقوق -->
       <p class="copyright-text">© 2026 الزبير إبراهيم. جميع الحقوق محفوظة.</p>
     </div>
   </footer>
@@ -204,41 +196,8 @@
     });
   </script>
 
-  <!-- سكربت العداد المباشر من GoatCounter -->
-  <script>
-    async function initGoatCounter() {
-      const counterEl = document.getElementById('visit-count');
-      if (!counterEl) return;
-      
-      try {
-        const response = await fetch('https://azzubairx.goatcounter.com/counter/TOTAL.json');
-        if (!response.ok) throw new Error('لا يمكن الوصول للعداد');
-        
-        const data = await response.json();
-        const endCount = parseInt(data.count.replace(/,/g, ''), 10);
-        
-        let start = Math.max(0, endCount - 40);
-        const duration = 1000; 
-        const stepTime = Math.abs(Math.floor(duration / 40));
-        
-        const timer = setInterval(() => {
-          start += 1;
-          counterEl.innerText = start.toLocaleString('en-US');
-          if (start >= endCount) {
-            counterEl.innerText = data.count; 
-            clearInterval(timer);
-          }
-        }, stepTime);
-        
-      } catch (err) {
-        console.error("تعذر جلب عداد GoatCounter:", err);
-        counterEl.innerText = '∞';
-      }
-    }
-    
-    initGoatCounter();
-  </script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <!-- سكربت التقويم الزجاجي -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://npmcdn.com/flatpickr/dist/l10n/ar.js"></script>
   <script>
     flatpickr("#deadline", {
@@ -246,7 +205,7 @@
       disableMobile: true,
       dateFormat: "Y-m-d",
       minDate: "today",
-      dir: "rtl", // ضمان المحاذاة الهندسية الصحيحة للعربية
+      dir: "rtl",
     });
   </script>
 </body>
