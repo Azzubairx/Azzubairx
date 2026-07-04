@@ -428,6 +428,17 @@
       });
       scrollBtn.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: "smooth" }); });
     }
+    // تحديد الرابط النشط بناءً على المسار النظيف (Clean URLs)
+    let currentPath = window.location.pathname.replace(/\/$/, "");
+    if (currentPath === "") currentPath = "/";
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.classList.remove('active'); // إزالة التنشيط الافتراضي
+      const href = link.getAttribute('href');
+      if (href === currentPath) { 
+        link.classList.add('active'); 
+      }
+    });
   </script>
 </body>
 </html>
