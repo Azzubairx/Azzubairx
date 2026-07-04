@@ -190,10 +190,16 @@
     }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     
-    const currentPath = window.location.pathname.split('/').pop();
+    // تحديد الرابط النشط بناءً على المسار النظيف (Clean URLs)
+    let currentPath = window.location.pathname.replace(/\/$/, "");
+    if (currentPath === "") currentPath = "/";
+
     document.querySelectorAll('.nav-links a').forEach(link => {
+      link.classList.remove('active'); // إزالة التنشيط الافتراضي
       const href = link.getAttribute('href');
-      if ((currentPath === '' && href === 'index.html') || href === currentPath) { link.classList.add('active'); }
+      if (href === currentPath) { 
+        link.classList.add('active'); 
+      }
     });
   </script>
 
