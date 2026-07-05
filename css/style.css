@@ -684,10 +684,6 @@ span.flatpickr-weekday {
     direction: ltr !important;
 }
 
-[dir="ltr"] .form-group {
-    flex-direction: row !important; /* ضمان ترتيب الحقول المتجاورة من اليسار لليمين */
-}
-
 /* إصلاح التباعد الداخلي لحقل الموعد النهائي (التقويم) في الإنجليزية */
 [dir="ltr"] #deadline {
     padding-left: 20px !important; 
