@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  <meta name="referrer" content="strict-origin-when-downgrade" />
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8294W9LHR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N8294W9LHR');
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azzubair | Services</title>
+
+  <meta name="description" content="A comprehensive suite of linguistic, technical, and academic solutions, including Translation, Prompt Engineering, Privacy Consultation, and Academic Formatting." />
+  
+  <script>
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const currentTheme = savedTheme ? savedTheme : (systemPrefersLight ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  
+  <style>
+    .category-section { display: none; animation: fadeIn 0.5s ease; }
+    .category-section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="container">
+      <a href="/en/" class="logo">Azzubair</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/en/">Home</a></li>
+        <li><a href="/en/about">About Me</a></li>
+        <li><a href="/en/portfolio">Portfolio</a></li>
+        <li><a href="/en/services" class="active">Services</a></li>
+        <li><a href="/en/contact">Contact</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+        <a href="/services" class="lang-switch" aria-label="Arabic Version">AR</a>
+        <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container reveal">
+      <h1>My Services</h1>
+      <p>A comprehensive suite of precisely crafted linguistic, technical, and academic solutions. Browse through the filters below.</p>
+    </div>
+  </div>
+
+  <section id="services" style="padding-top: 0;">
+    <div class="container">
+
+      <div class="services-filter reveal">
+        <button class="filter-btn active" data-filter="all">Show All</button>
+        <button class="filter-btn" data-filter="lang">Translation & Languages</button>
+        <button class="filter-btn" data-filter="tech">Tech & Digital Design</button>
+        <button class="filter-btn" data-filter="academic">Academia & Data</button>
+      </div>
+
+      <!-- ================= Category 1: Translation & Languages ================= -->
+      <div class="category-section active" data-category="lang">
+        <h3 class="category-title"><i class="fas fa-globe"></i> Translation & Linguistic Services</h3>
+        <div class="services-grid">
+          
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-language"></i></div>
+            <div class="service-content">
+              <h3>Translation & Localization</h3>
+              <p>Accurate translation mindful of linguistic context and cultural nuances between Arabic and English.</p>
+              <span class="why-me">Drafted to read as if originally written in the target language.</span>
+              <div class="service-price"><span>Est. Price</span> 50 - 200 LYD / 1k words</div>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-badge">Most Requested <i class="fas fa-fire" style="margin-left: 5px;"></i></div>
+            <div class="service-icon"><i class="fas fa-spell-check"></i></div>
+            <div class="service-content">
+              <h3>Proofreading & Editing</h3>
+              <p>Comprehensive grammatical and stylistic review for both Arabic and English to ensure error-free texts.</p>
+              <span class="why-me">An academic eye guaranteeing text solidity and professionalism.</span>
+              <div class="service-price"><span>Est. Price</span> 30 - 60 LYD / 1k words</div>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-microphone-alt"></i></div>
+            <div class="service-content">
+              <h3>Transcription</h3>
+              <p>Accurate, clear, and rapid transcription of audio and visual content in both Arabic and English.</p>
+              <span class="why-me">Faithful representation without omitting any original details.</span>
+              <div class="service-price"><span>Est. Price</span> Determined per audio minute</div>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-headphones"></i></div>
+            <div class="service-content">
+              <h3>Phonetics Training</h3>
+              <p>Specialised training in British and American English phonetics and pronunciation correction.</p>
+              <span class="why-me">Establishing sound pronunciation based on scientific foundations.</span>
+              <div class="service-price"><span>Est. Price</span> Based on training plan</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================= Category 2: Tech & Digital Design ================= -->
+      <div class="category-section active" data-category="tech" style="margin-top: 3rem;">
+        <h3 class="category-title"><i class="fas fa-microchip"></i> Tech & Digital Design</h3>
+        <div class="services-grid">
+          
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-terminal"></i></div>
+            <div class="service-content">
+              <h3>Prompt Engineering</h3>
+              <p>Crafting advanced and directed prompts for Large Language Models (LLMs) to acquire precise outputs, focusing on Arabic contexts.</p>
+              <span class="why-me">Professional results on the first attempt driven by error analysis.</span>
+              <div class="service-price"><span>Est. Price</span> 50 - 150 LYD / Hour or Model</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-badge" style="background: linear-gradient(135deg, #3B82F6, #2563EB);">New Service</div>
+            <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+            <div class="service-content">
+              <h3>Web Design & Development</h3>
+              <p>Building fast, responsive portfolio and corporate websites using the latest web technologies and AI (Vibe Coding).</p>
+              <span class="why-me">Modern UI/UX reflecting your professional identity and attracting clients.</span>
+              <div class="service-price"><span>Est. Price</span> Based on site requirements</div>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-brain"></i></div>
+            <div class="service-content">
+              <h3>AI Training & Evaluation</h3>
+              <p>Controlling AI output quality, enhancing linguistic accuracy, and ensuring cultural compatibility.</p>
+              <span class="why-me">Evaluation based on specialized academic research, not merely personal opinion.</span>
+              <div class="service-price"><span>Est. Price</span> Per project agreement</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-closed-captioning"></i></div>
+            <div class="service-content">
+              <h3>Subtitling & Video Editing</h3>
+              <p>Translating and modifying subtitle files (SRT, VTT, ASS) with deep understanding of video formats and broadcast codecs.</p>
+              <span class="why-me">Precise synchronization guaranteeing comfortable reading for viewers.</span>
+              <div class="service-price"><span>Est. Price</span> Per video minute</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+            <div class="service-content">
+              <h3>Digital Design & Content Creation</h3>
+              <p>Designing graphics and imagery using Photoshop and Canva, creating visual content for education and advertising.</p>
+              <span class="why-me">Advanced visual literacy for building compelling brand identities.</span>
+              <div class="service-price"><span>Est. Price</span> 25 - 50 LYD / Per design</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-badge">Most Requested <i class="fas fa-fire" style="margin-left: 5px;"></i></div>
+            <div class="service-icon"><i class="fas fa-laptop-medical"></i></div>
+            <div class="service-content">
+              <h3>Tech Support & System Optimization</h3>
+              <p>Resolving Windows and Android issues, accelerating devices, and providing full technical support for users and companies.</p>
+              <span class="why-me">Radical and rapid troubleshooting to save you time.</span>
+              <div class="service-price"><span>Est. Price</span> Based on issue type</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="service-content">
+              <h3>Network & Cybersecurity Setup</h3>
+              <p>Configuring VPNs, secure DNS, providing home network security advice, and digital privacy consultations.</p>
+              <span class="why-me">Take actual control over your digital environment.</span>
+              <div class="service-price"><span>Est. Price</span> Initial consultation free</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fab fa-microsoft"></i></div>
+            <div class="service-content">
+              <h3>Integrated Office Solutions</h3>
+              <p>Managing operations via Microsoft Office and Google Workspace, and organizing cloud directories.</p>
+              <span class="why-me">Digital organization elevating your workflow efficiency.</span>
+              <div class="service-price"><span>Est. Price</span> Based on volume of work</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================= Category 3: Academia & Data ================= -->
+      <div class="category-section active" data-category="academic" style="margin-top: 3rem;">
+        <h3 class="category-title"><i class="fas fa-graduation-cap"></i> Academia & Data Management</h3>
+        <div class="services-grid">
+          
+          <div class="service-card">
+            <div class="service-badge">Most Requested <i class="fas fa-fire" style="margin-left: 5px;"></i></div>
+            <div class="service-icon"><i class="fas fa-book-open"></i></div>
+            <div class="service-content">
+              <h3>Academic & Religious Formatting</h3>
+              <p>Professional document formatting according to international standards (APA, etc.), including Quranic and Exegetical research.</p>
+              <span class="why-me">Strict structural adherence to academic guidelines.</span>
+              <div class="service-price"><span>Est. Price</span> Based on document size</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
+            <div class="service-content">
+              <h3>Exam & Assessment Preparation</h3>
+              <p>Drafting and formatting academic exam papers and assessments with precision and professionalism.</p>
+              <span class="why-me">Error-free sheets, ready for immediate printing.</span>
+              <div class="service-price"><span>Est. Price</span> Based on subject and level</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
+            <div class="service-content">
+              <h3>Academic Editing</h3>
+              <p>Writing and phrasing advanced academic content in English with a solid academic tone.</p>
+              <span class="why-me">Eloquent language meeting rigorous publication standards.</span>
+              <div class="service-price"><span>Est. Price</span> By agreement</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-search"></i></div>
+            <div class="service-content">
+              <h3>Advanced Digital Research</h3>
+              <p>Extracting academic content and rare digital sources to support your scientific research efficiently.</p>
+              <span class="why-me">Providing crucial references as swiftly as possible.</span>
+              <div class="service-price"><span>Est. Price</span> Based on research scope</div>
+            </div>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-file-export"></i></div>
+            <div class="service-content">
+              <h3>Data Entry & File Conversion</h3>
+              <p>Converting files (PDF/Word/Excel), accurate data entry, and records management.</p>
+              <span class="why-me">Bypassing the errors of free tools with Arabic (RTL) text.</span>
+              <div class="service-price"><span>Est. Price</span> Based on data volume</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-table"></i></div>
+            <div class="service-content">
+              <h3>Professional Excel Spreadsheets</h3>
+              <p>Designing analytical tables and advanced formulas to facilitate business administration and raw data management.</p>
+              <span class="why-me">Transforming data into readable dashboards.</span>
+              <div class="service-price"><span>Est. Price</span> Based on table complexity</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-id-card"></i></div>
+            <div class="service-content">
+              <h3>ATS Resumes & Certificate Design</h3>
+              <p>Drafting ATS-compliant resumes and designing certificates and official documents for individuals and institutions.</p>
+              <span class="why-me">Drafting based on algorithmic sorting mechanics with unique visual identity.</span>
+              <div class="service-price"><span>Est. Price</span> Starting from 30 LYD</div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-poll"></i></div>
+            <div class="service-content">
+              <h3>Smart Questionnaires (Google Forms)</h3>
+              <p>Creating research and professional data collection forms utilizing conditional branching and response validation.</p>
+              <span class="why-me">Integrated management from form building to deployment and live monitoring.</span>
+              <div class="service-price"><span>Est. Price</span> Based on form complexity</div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="faq" style="border-top: 1px solid var(--border-glass);">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to the most common inquiries I receive.</p>
+      </div>
+      
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-question">What is the fastest service you can provide for urgent requests? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer">
+            <p>I can complete proofreading for short texts (500 to 1000 words) within 24 hours, alongside urgent technical support and image generation tasks.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">Do you accept long-term projects and contracts? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer">
+            <p>Yes, I accept monthly or annual retainer agreements with institutions and startups to provide ongoing technical support and translation management at preferential rates.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Is there a portfolio I can view? <i class="fas fa-chevron-down"></i></button>
+          <div class="faq-answer">
+            <p>Absolutely! Tech projects and web apps (like the <strong>Solaris Swahili Time System</strong>) are publicly displayed on the Portfolio page. As for translation and data documents, to maintain client privacy (NDA), I do not publish them publicly; however, I can provide relevant past samples when you contact me.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0; padding-bottom: 20px;">
+    <div class="container">
+      <div class="about-cta reveal">
+        <h2>Ready to begin your project?</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Get an accurate, free quote within 24 hours.</p>
+        <div class="btn-group" style="justify-content: center;">
+          <a href="/en/contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Quick Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="copyright-text">© 2026 Azzubair Husain. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+  <script>
+    const root = document.documentElement;
+    const toggle = document.getElementById('themeToggle');
+    const icon = toggle.querySelector('i');
+    if (root.getAttribute('data-theme') === 'light') { icon.className = 'fas fa-sun'; } else { icon.className = 'fas fa-moon'; }
+    toggle.addEventListener('click', () => {
+      const isDark = root.getAttribute('data-theme') === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
+      root.setAttribute('data-theme', newTheme);
+      icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+      localStorage.setItem('theme', newTheme);
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const hamburgerIcon = hamburger.querySelector('i');
+    hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); hamburgerIcon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars'; });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const sections = document.querySelectorAll('.category-section');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const target = btn.getAttribute('data-filter');
+          sections.forEach(section => {
+            if (target === 'all' || section.getAttribute('data-category') === target) {
+              section.style.display = 'block';
+              setTimeout(() => { section.classList.add('active'); }, 10);
+            } else {
+              section.classList.remove('active');
+              section.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const btn = item.querySelector('.faq-question');
+      btn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(faq => faq.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.remove('hidden'); entry.target.classList.add('active'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+    document.querySelectorAll('.reveal').forEach(el => { el.classList.add('hidden'); revealObserver.observe(el); });
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    if(scrollBtn) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) { scrollBtn.style.display = "block"; } else { scrollBtn.style.display = "none"; }
+      });
+      scrollBtn.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: "smooth" }); });
+    }
+    
+    let currentPath = window.location.pathname.replace(/\/$/, "");
+    if (currentPath === "" || currentPath === "/en") currentPath = "/en/";
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.classList.remove('active');
+      let href = link.getAttribute('href');
+      if (href === currentPath || href + "/" === currentPath) { 
+        link.classList.add('active'); 
+      }
+    });
+  </script>
+</body>
+</html>
