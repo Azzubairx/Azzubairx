@@ -606,23 +606,14 @@ span.flatpickr-weekday {
 [dir="ltr"] body {
     direction: ltr;
     text-align: left;
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important; /* خط إنجليزي قياسي */
+    /* تطبيق خط DM Sans على النصوص الإنجليزية */
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif !important; 
 }
-[dir="ltr"] .nav-links,
-[dir="ltr"] .nav-controls {
-    flex-direction: row; /* عكس شريط التنقل */
-}
-[dir="ltr"] .logo {
-    direction: ltr;
-}
-[dir="ltr"] .contact-form {
-    text-align: left;
-}
-[dir="ltr"] .pricing-list {
-    text-align: left;
-}
-[dir="ltr"] .faq-question {
-    text-align: left;
+
+/* جعل العناوين أكثر أناقة بخط DM Sans */
+[dir="ltr"] h1, [dir="ltr"] h2, [dir="ltr"] h3, [dir="ltr"] h4 {
+    font-family: 'DM Sans', sans-serif !important;
+    letter-spacing: -0.5px; /* تقارب بسيط للأحرف يعطي طابعاً احترافياً جداً مع هذا الخط */
 }
 /* عكس اتجاه التايم لاين الزجاجي في صفحة "عني" */
 [dir="ltr"] .modern-timeline {
