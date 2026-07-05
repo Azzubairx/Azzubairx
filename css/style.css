@@ -671,3 +671,25 @@ span.flatpickr-weekday {
     border-color: var(--primary);
     transform: translateY(-2px);
 }
+
+/* =========================================
+   إصلاح محاذاة نموذج التواصل للنسخة الإنجليزية
+   ========================================= */
+[dir="ltr"] .contact-form,
+[dir="ltr"] .contact-form label,
+[dir="ltr"] .contact-form input,
+[dir="ltr"] .contact-form textarea,
+[dir="ltr"] .contact-form select {
+    text-align: left !important;
+    direction: ltr !important;
+}
+
+[dir="ltr"] .form-group {
+    flex-direction: row !important; /* ضمان ترتيب الحقول المتجاورة من اليسار لليمين */
+}
+
+/* إصلاح التباعد الداخلي لحقل الموعد النهائي (التقويم) في الإنجليزية */
+[dir="ltr"] #deadline {
+    padding-left: 20px !important; 
+    padding-right: 40px !important;
+}
