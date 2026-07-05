@@ -599,3 +599,69 @@ span.flatpickr-weekday {
     color: var(--text-muted) !important;
     opacity: 0.3 !important;
 }
+
+/* =========================================
+   دعم اللغة الإنجليزية (LTR Support)
+   ========================================= */
+[dir="ltr"] body {
+    direction: ltr;
+    text-align: left;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif !important; /* خط إنجليزي قياسي */
+}
+[dir="ltr"] .nav-links,
+[dir="ltr"] .nav-controls {
+    flex-direction: row; /* عكس شريط التنقل */
+}
+[dir="ltr"] .logo {
+    direction: ltr;
+}
+[dir="ltr"] .contact-form {
+    text-align: left;
+}
+[dir="ltr"] .pricing-list {
+    text-align: left;
+}
+[dir="ltr"] .faq-question {
+    text-align: left;
+}
+/* عكس اتجاه التايم لاين الزجاجي في صفحة "عني" */
+[dir="ltr"] .modern-timeline {
+    border-right: none;
+    border-left: 3px solid var(--border-primary);
+    padding-right: 0;
+    padding-left: 24px;
+    margin-right: 0;
+    margin-left: 12px;
+}
+[dir="ltr"] .modern-timeline__node {
+    right: auto;
+    left: -33.5px;
+}
+/* عكس اتجاه التقويم (Flatpickr) */
+[dir="ltr"] .flatpickr-calendar {
+    direction: ltr !important;
+}
+
+/* ── تصميم زر تبديل اللغة (Language Switcher) ── */
+.lang-switch {
+    font-family: 'Casa', system-ui, sans-serif;
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-glass);
+}
+.lang-switch:hover {
+    background: var(--primary);
+    color: #fff !important;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
