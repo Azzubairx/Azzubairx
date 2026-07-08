@@ -35,29 +35,112 @@
   <link rel="stylesheet" href="/css/style.css" />
   
   <style>
-    /* تنسيق خاص لشريط تحديث الصفحة */
-    .last-updated {
-        display: inline-flex;
+    /* =========================================
+       تنسيقات صفحة الأدوات (Techlore Style UX)
+       ========================================= */
+    .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+    
+    .tool-card {
+        background: linear-gradient(145deg, var(--bg-glass), rgba(0,0,0,0.05));
+        backdrop-filter: blur(16px);
+        border: 1px solid var(--border-glass);
+        border-radius: 20px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        box-shadow: var(--shadow-glass);
+        transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .tool-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary);
+    }
+
+    .tool-header {
+        display: flex;
         align-items: center;
+        gap: 15px;
+        margin-bottom: 1rem;
+    }
+    .tool-icon {
+        font-size: 2.2rem;
+        color: var(--text-main);
+        background: var(--bg-main);
+        width: 55px; height: 55px;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 14px;
+        border: 1px solid var(--border-glass);
+    }
+    .tool-title h3 {
+        font-size: 1.4rem;
+        color: var(--text-main);
+        margin-bottom: 2px;
+    }
+    .tool-os {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        display: flex;
         gap: 8px;
+    }
+
+    /* أوسمة التصنيف (Badges) */
+    .tool-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 1.2rem;
+    }
+    .t-badge {
+        font-size: 0.75rem;
+        font-weight: bold;
+        padding: 4px 10px;
+        border-radius: 6px;
+    }
+    .b-level-1 { background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3); } /* مبتدئ - أخضر */
+    .b-level-2 { background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); } /* متوسط - برتقالي */
+    .b-level-3 { background: rgba(239, 68, 68, 0.15); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.3); } /* متقدم - أحمر */
+    
+    .b-price { background: var(--bg-main); color: var(--text-main); border: 1px solid var(--border-glass); }
+    .b-source { background: rgba(139, 92, 246, 0.15); color: #8B5CF6; border: 1px solid rgba(139, 92, 246, 0.3); } /* مصدر مفتوح/خاص - بنفسجي */
+
+    .tool-desc {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+    }
+
+    .tool-btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 0.95rem;
         background: var(--primary-glass);
         color: var(--primary);
-        padding: 6px 16px;
-        border-radius: 50px;
-        font-size: 0.9rem;
-        font-weight: bold;
         border: 1px solid var(--border-primary);
-        margin-bottom: 2rem;
+        transition: all 0.3s ease;
     }
-    .tool-tag {
-        font-size: 0.8rem;
-        padding: 3px 10px;
-        border-radius: 8px;
-        font-weight: bold;
-        background: var(--bg-main);
-        border: 1px solid var(--border-glass);
-        color: var(--text-muted);
-        margin-right: auto;
+    .tool-btn:hover {
+        background: var(--primary);
+        color: #fff;
+    }
+    .tool-btn.affiliate {
+        background: linear-gradient(135deg, var(--primary), #8B5CF6);
+        color: #fff;
+        border: none;
+        box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    }
+    .tool-btn.affiliate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
     }
   </style>
 </head>
@@ -66,7 +149,7 @@
   <!-- شريط التنقل -->
   <nav id="navbar">
     <div class="container">
-      <a href="/index" class="logo">Azzubair</a>
+      <a href="/" class="logo">Azzubair</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="/">الرئيسية</a></li>
         <li><a href="/about">من أنا</a></li>
@@ -76,143 +159,284 @@
         <li><a href="/contact">التواصل والدفع</a></li>
       </ul>
       <div class="nav-controls">
-        <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
+        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
         <!-- سيتم إضافة النسخة الإنجليزية لاحقاً -->
-        <a href="/en/tools" class="lang-switch" aria-label="English Version">EN</a>
-        <button class="hamburger" id="hamburger" aria-label="القائمة"><i class="fas fa-bars"></i></button>
+        <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
       </div>
     </div>
   </nav>
 
-  <div class="page-hero">
+  <div class="page-hero" style="padding-bottom: 20px;">
     <div class="container reveal">
       <h1>الأدوات والتوصيات</h1>
-      <p>قائمة مُختارة بعناية للبرمجيات وأدوات الذكاء الاصطناعي التي أعتمد عليها في عملي اليومي لضمان أعلى معايير الجودة والأمان.</p>
+      <p>قائمة مُختارة بعناية للبرمجيات وأدوات الخصوصية التي أعتمد عليها. (مستوحاة من معايير الأمان العالمية).</p>
     </div>
   </div>
 
   <section style="padding-top: 0;">
     <div class="container">
-      
-      <div class="reveal" style="text-align: center;">
-        <div class="last-updated">
-          <i class="fas fa-sync-alt"></i> آخر تحديث: يوليو 2026
-        </div>
-      </div>
 
       <!-- إخلاء المسؤولية -->
       <div class="reveal" style="background: var(--bg-glass); border-right: 4px solid var(--primary); padding: 20px; border-radius: 12px; margin-bottom: 4rem; box-shadow: var(--shadow-glass);">
         <h4 style="color: var(--text-main); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-          <i class="fas fa-info-circle" style="color: var(--primary);"></i> إخلاء مسؤولية
+          <i class="fas fa-info-circle" style="color: var(--primary);"></i> إخلاء مسؤولية & تحديث
         </h4>
         <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0;">
-          هذه القائمة تعكس تفضيلاتي الشخصية وتجربتي المهنية الحالية. التقنية تتطور بسرعة، وما هو آمن أو فعّال اليوم قد يتغير غداً. هذه التوصيات ليست بديلاً عن الاستشارة الأمنية المتخصصة لمؤسستك.
+          آخر تحديث: <strong>يوليو 2026</strong>. هذه القائمة تعكس تفضيلاتي الشخصية وتجربتي المهنية. التقنية تتطور بسرعة، وهذه التوصيات ليست بديلاً عن الاستشارة الأمنية المتخصصة. بعض الروابط الملونة قد تكون روابط إحالة (Affiliate) تدعم عملي دون أي تكلفة إضافية عليك.
         </p>
       </div>
 
-      <!-- الفئة 1: الذكاء الاصطناعي -->
-      <h3 class="category-title reveal"><i class="fas fa-brain"></i> الذكاء الاصطناعي والإنتاجية</h3>
-      <div class="services-grid" style="margin-bottom: 4rem;">
+      <!-- ================= المتصفحات ================= -->
+      <h3 class="category-title reveal"><i class="fas fa-globe"></i> المتصفحات (Browsers)</h3>
+      <div class="tools-grid">
         
-        <div class="service-card reveal">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-            <div class="service-icon" style="margin-bottom: 0;"><i class="fas fa-robot"></i></div>
-            <span class="tool-tag">Freemium</span>
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #FB542B;"><i class="fab fa-brave"></i></div>
+            <div class="tool-title">
+              <h3>Brave</h3>
+              <div class="tool-os"><i class="fab fa-windows"></i> <i class="fab fa-apple"></i> <i class="fab fa-linux"></i> <i class="fab fa-android"></i></div>
+            </div>
           </div>
-          <div class="service-content">
-            <h3 style="margin-bottom: 0.5rem;">Claude 3.5 Sonnet</h3>
-            <p>نموذجي اللغوي المفضل (من Anthropic). يتفوق بشكل ملحوظ في التحليل اللغوي الدقيق، الفهم العميق للسياقات المعقدة، وأسلوب الكتابة البشري الأقل اصطناعاً مقارنة بغيره.</p>
-            <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" class="why-me" style="text-decoration: none;"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <div class="tool-badges">
+            <span class="t-badge b-level-1">مبتدئ</span>
+            <span class="t-badge b-price">مجاني</span>
+            <span class="t-badge b-source">مفتوح المصدر</span>
           </div>
+          <p class="tool-desc">متصفح يقدم تجربة Chromium مألوفة مع الخصوصية والأمان المدمج بشكل افتراضي. المميزات المدمجة سهلة التعطيل ولا تؤثر على سرعته.</p>
+          <a href="https://brave.com/" target="_blank" rel="noopener noreferrer" class="tool-btn">زيارة الموقع</a>
         </div>
 
-        <div class="service-card reveal">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-            <div class="service-icon" style="margin-bottom: 0;"><i class="fas fa-bolt"></i></div>
-            <span class="tool-tag">Free / Open</span>
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #FF7139;"><i class="fab fa-firefox-browser"></i></div>
+            <div class="tool-title">
+              <h3>Firefox</h3>
+              <div class="tool-os"><i class="fab fa-windows"></i> <i class="fab fa-apple"></i> <i class="fab fa-linux"></i> <i class="fab fa-android"></i></div>
+            </div>
           </div>
-          <div class="service-content">
-            <h3 style="margin-bottom: 0.5rem;">DeepSeek Coder</h3>
-            <p>أداة قوية أستخدمها بشكل مكثف في الـ Vibe Coding وبناء التطبيقات. يوفر دقة عالية في توليد الأكواد البرمجية وتحليلها.</p>
-            <a href="https://coder.deepseek.com/" target="_blank" rel="noopener noreferrer" class="why-me" style="text-decoration: none;"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <div class="tool-badges">
+            <span class="t-badge b-level-1">مبتدئ</span>
+            <span class="t-badge b-price">مجاني</span>
+            <span class="t-badge b-source">مفتوح المصدر</span>
           </div>
+          <p class="tool-desc">أقوى بديل غير Chromium لسطح المكتب، مدعوم من Mozilla. خيار قوي بشكل افتراضي، وبالإعدادات المتقدمة (Hardening) يصبح الأفضل.</p>
+          <a href="https://www.mozilla.org/firefox/" target="_blank" rel="noopener noreferrer" class="tool-btn">زيارة الموقع</a>
+        </div>
+
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #002B36;"><i class="fas fa-wolf-pack-battles"></i></div>
+            <div class="tool-title">
+              <h3>LibreWolf</h3>
+              <div class="tool-os"><i class="fab fa-windows"></i> <i class="fab fa-apple"></i> <i class="fab fa-linux"></i></div>
+            </div>
+          </div>
+          <div class="tool-badges">
+            <span class="t-badge b-level-2">متوسط</span>
+            <span class="t-badge b-price">مجاني</span>
+            <span class="t-badge b-source">مفتوح المصدر</span>
+          </div>
+          <p class="tool-desc">نسخة مجتمعية من Firefox تطبق معظم إعدادات التصلب (Hardening) الموصى بها افتراضيًا، مما يوفر عليك العناء اليدوي.</p>
+          <a href="https://librewolf.net/" target="_blank" rel="noopener noreferrer" class="tool-btn">زيارة الموقع</a>
+        </div>
+
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #7D4698;"><i class="fas fa-mask"></i></div>
+            <div class="tool-title">
+              <h3>Tor Browser</h3>
+              <div class="tool-os"><i class="fab fa-windows"></i> <i class="fab fa-apple"></i> <i class="fab fa-linux"></i> <i class="fab fa-android"></i></div>
+            </div>
+          </div>
+          <div class="tool-badges">
+            <span class="t-badge b-level-3">متقدم</span>
+            <span class="t-badge b-price">مجاني</span>
+            <span class="t-badge b-source">مفتوح المصدر</span>
+          </div>
+          <p class="tool-desc">يوجه حركتك عبر شبكة Tor للخصوصية المطلقة وتجاوز الرقابة. قد يؤدي إلى بطء الأداء وكسر بعض المواقع بسبب التشفير العالي.</p>
+          <a href="https://www.torproject.org/" target="_blank" rel="noopener noreferrer" class="tool-btn">زيارة الموقع</a>
         </div>
 
       </div>
 
-      <!-- الفئة 2: الخصوصية والأمان -->
-      <h3 class="category-title reveal"><i class="fas fa-shield-alt"></i> الخصوصية والأمن الرقمي</h3>
-      <div class="services-grid" style="margin-bottom: 4rem;">
+      <!-- ================= إضافات المتصفح ================= -->
+      <h3 class="category-title reveal"><i class="fas fa-puzzle-piece"></i> إضافات المتصفح (Extensions)</h3>
+      <div class="tools-grid">
         
-        <div class="service-card reveal">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-            <div class="service-icon" style="margin-bottom: 0;"><i class="fas fa-envelope"></i></div>
-            <span class="tool-tag">Freemium</span>
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #68BC71;"><i class="fas fa-shield-virus"></i></div>
+            <div class="tool-title">
+              <h3>AdGuard</h3>
+              <div class="tool-os">جميع المتصفحات</div>
+            </div>
           </div>
-          <div class="service-content">
-            <h3 style="margin-bottom: 0.5rem;">Proton Mail</h3>
-            <p>بريد إلكتروني مشفر من النهاية إلى النهاية (E2EE) ومقره سويسرا. أعتمد عليه لضمان السرية المطلقة لمراسلات ومستندات العملاء (NDA).</p>
-            <a href="https://proton.me/mail" target="_blank" rel="noopener noreferrer" class="why-me" style="text-decoration: none;"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <div class="tool-badges">
+            <span class="t-badge b-level-1">مبتدئ</span>
+            <span class="t-badge b-price">مجاني/مدفوع</span>
+            <span class="t-badge b-source">مفتوح المصدر</span>
           </div>
+          <p class="tool-desc">خيار موثوق وسهل لحجب الإعلانات والمتتبعات والتصيد الاحتيالي، ممتاز لمستخدمي Safari الذين يريدون حجبًا فعالاً بدون كسر المواقع.</p>
+          <a href="https://adguard.com/" target="_blank" rel="noopener noreferrer" class="tool-btn">زيارة الموقع</a>
         </div>
 
-        <div class="service-card reveal">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-            <div class="service-icon" style="margin-bottom: 0;"><i class="fas fa-network-wired"></i></div>
-            <span class="tool-tag">Free</span>
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #800000;"><i class="fas fa-ban"></i></div>
+            <div class="tool-title">
+              <h3>uBlock Origin</h3>
+              <div class="tool-os">Firefox, Chrome, Edge</div>
+            </div>
           </div>
-          <div class="service-content">
-            <h3 style="margin-bottom: 0.5rem;">NextDNS</h3>
-            <p>مزود DNS مخصص. يمنع برمجيات التتبع (Trackers) والإعلانات المزعجة على مستوى الشبكة بالكامل، ويحمي الأجهزة من البرمجيات الخبيثة قبل وصولها للمتصفح.</p>
-            <a href="https://nextdns.io" target="_blank" rel="noopener noreferrer" class="why-me" style="text-decoration: none;"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <div class="tool-badges">
+            <span class="t-badge b-level-2">متوسط</span>
+            <span class="t-badge b-price">مجاني</span>
+            <span class="t-badge b-source">مفتوح المصدر</span>
           </div>
+          <p class="tool-desc">إضافة قوية جدًا لحجب الإعلانات والمحتوى الضار. قابلة للتخصيص بدرجة عالية، والإعدادات الافتراضية مثالية لمعظم المستخدمين.</p>
+          <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer" class="tool-btn">زيارة الموقع</a>
         </div>
 
       </div>
 
-      <!-- الفئة 3: أنظمة التشغيل والترجمة -->
-      <h3 class="category-title reveal"><i class="fab fa-linux"></i> التطوير والأنظمة</h3>
-      <div class="services-grid">
+      <!-- ================= محركات البحث ================= -->
+      <h3 class="category-title reveal"><i class="fas fa-search"></i> محركات البحث (Search Engines)</h3>
+      <div class="tools-grid">
+
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #DE5833;"><i class="fas fa-search"></i></div>
+            <div class="tool-title">
+              <h3>DuckDuckGo</h3>
+              <div class="tool-os">Web</div>
+            </div>
+          </div>
+          <div class="tool-badges">
+            <span class="t-badge b-level-1">مبتدئ</span>
+            <span class="t-badge b-price">مجاني</span>
+            <span class="t-badge b-source">خاص</span>
+          </div>
+          <p class="tool-desc">محرك بحث مجمع يركز على الخصوصية، يسحب النتائج من Bing دون تمرير هويتك. نقطة دخول ممتازة لمن يغادر Google.</p>
+          <a href="https://duckduckgo.com/" target="_blank" rel="noopener noreferrer" class="tool-btn">زيارة الموقع</a>
+        </div>
+
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #FFB71B;"><i class="fas fa-search"></i></div>
+            <div class="tool-title">
+              <h3>Kagi</h3>
+              <div class="tool-os">Web</div>
+            </div>
+          </div>
+          <div class="tool-badges">
+            <span class="t-badge b-level-1">مبتدئ</span>
+            <span class="t-badge b-price">مدفوع</span>
+            <span class="t-badge b-source">خاص</span>
+          </div>
+          <p class="tool-desc">محرك بحث مدفوع بفهرس خاص، بدون إعلانات وتتبع. ممول بالاشتراكات مما يزيل تضارب المصالح وراء جمع البيانات.</p>
+          <a href="https://kagi.com/" target="_blank" rel="noopener noreferrer" class="tool-btn">زيارة الموقع</a>
+        </div>
+
+      </div>
+
+      <!-- ================= مزودو DNS ================= -->
+      <h3 class="category-title reveal"><i class="fas fa-network-wired"></i> مزودو DNS</h3>
+      <div class="tools-grid">
+
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #000;"><i class="fas fa-server"></i></div>
+            <div class="tool-title">
+              <h3>NextDNS</h3>
+              <div class="tool-os">جميع الأنظمة</div>
+            </div>
+          </div>
+          <div class="tool-badges">
+            <span class="t-badge b-level-2">متوسط</span>
+            <span class="t-badge b-price">مجاني/مدفوع</span>
+            <span class="t-badge b-source">خاص</span>
+          </div>
+          <p class="tool-desc">DNS مشفر وقابل للتخصيص يتيح بناء قوائم حجب عبر أجهزتك. أداة جبارة للتحكم في الخصوصية على مستوى الشبكة.</p>
+          <a href="https://nextdns.io/?from=358r3ctt" target="_blank" rel="noopener noreferrer" class="tool-btn affiliate"><i class="fas fa-link"></i> رابط إحالة (دعم)</a>
+        </div>
+
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #68BC71;"><i class="fas fa-server"></i></div>
+            <div class="tool-title">
+              <h3>AdGuard DNS</h3>
+              <div class="tool-os">جميع الأنظمة</div>
+            </div>
+          </div>
+          <div class="tool-badges">
+            <span class="t-badge b-level-1">مبتدئ</span>
+            <span class="t-badge b-price">مجاني/مدفوع</span>
+            <span class="t-badge b-source">مفتوح المصدر</span>
+          </div>
+          <p class="tool-desc">خادم مشفر مع حجب إعلانات مدمج. خيار "اضبطه وانساه" منخفض الجهد لإضافة حماية سريعة بدون برامج.</p>
+          <a href="https://adguard-dns.io/" target="_blank" rel="noopener noreferrer" class="tool-btn">زيارة الموقع</a>
+        </div>
+
+      </div>
+
+      <!-- ================= VPN و الإيميل و كلمات المرور ================= -->
+      <h3 class="category-title reveal"><i class="fas fa-lock"></i> الأمان، البريد، وإدارة الحسابات</h3>
+      <div class="tools-grid">
+
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #6D28D9;"><i class="fas fa-envelope"></i></div>
+            <div class="tool-title">
+              <h3>Proton Mail / VPN / Pass</h3>
+              <div class="tool-os"><i class="fab fa-windows"></i> <i class="fab fa-apple"></i> <i class="fab fa-linux"></i> <i class="fab fa-android"></i></div>
+            </div>
+          </div>
+          <div class="tool-badges">
+            <span class="t-badge b-level-1">مبتدئ</span>
+            <span class="t-badge b-price">مجاني/مدفوع</span>
+            <span class="t-badge b-source">مفتوح المصدر</span>
+          </div>
+          <p class="tool-desc">نظام بيئي سويسري متكامل للخصوصية (بريد، VPN، مدير كلمات مرور، و Aliasing). تشفير وصول صفري من طرف إلى طرف لجميع البيانات.</p>
+          <a href="https://pr.tn/ref/9MWY2K9S" target="_blank" rel="noopener noreferrer" class="tool-btn affiliate"><i class="fas fa-link"></i> رابط إحالة (دعم)</a>
+        </div>
+
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #175DDC;"><i class="fas fa-shield-alt"></i></div>
+            <div class="tool-title">
+              <h3>Bitwarden</h3>
+              <div class="tool-os"><i class="fab fa-windows"></i> <i class="fab fa-apple"></i> <i class="fab fa-linux"></i> <i class="fab fa-android"></i></div>
+            </div>
+          </div>
+          <div class="tool-badges">
+            <span class="t-badge b-level-1">مبتدئ</span>
+            <span class="t-badge b-price">مجاني/مدفوع</span>
+            <span class="t-badge b-source">مفتوح المصدر</span>
+          </div>
+          <p class="tool-desc">مدير كلمات مرور سحابي موثوق مع تشفير Zero-knowledge. يعمل بامتياز عبر جميع المنصات ويدعم الاستضافة الذاتية للبيانات.</p>
+          <a href="https://bitwarden.com/" target="_blank" rel="noopener noreferrer" class="tool-btn">زيارة الموقع</a>
+        </div>
         
-        <div class="service-card reveal">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-            <div class="service-icon" style="margin-bottom: 0;"><i class="fab fa-android"></i></div>
-            <span class="tool-tag">Open Source</span>
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #3A76F0;"><i class="fas fa-comment-dots"></i></div>
+            <div class="tool-title">
+              <h3>Signal</h3>
+              <div class="tool-os"><i class="fab fa-windows"></i> <i class="fab fa-apple"></i> <i class="fab fa-android"></i></div>
+            </div>
           </div>
-          <div class="service-content">
-            <h3 style="margin-bottom: 0.5rem;">Shizuku</h3>
-            <p>أداة قوية لأنظمة Android تسمح بمنح صلاحيات متقدمة للتطبيقات باستخدام (ADB) دون الحاجة لترويت الجهاز (Root)، أساسية في عملي لتخصيص الأنظمة.</p>
-            <a href="https://shizuku.rikka.app/" target="_blank" rel="noopener noreferrer" class="why-me" style="text-decoration: none;"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <div class="tool-badges">
+            <span class="t-badge b-level-1">مبتدئ</span>
+            <span class="t-badge b-price">مجاني</span>
+            <span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-        </div>
-
-        <div class="service-card reveal">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-            <div class="service-icon" style="margin-bottom: 0;"><i class="fas fa-language"></i></div>
-            <span class="tool-tag">Open Source</span>
-          </div>
-          <div class="service-content">
-            <h3 style="margin-bottom: 0.5rem;">Weblate</h3>
-            <p>منصة تعريب تعاونية مفتوحة المصدر. أستخدمها في مشاريع توطين البرمجيات، تضمن دقة وسلاسة في إدارة السلاسل النصية (UI Strings).</p>
-            <a href="https://weblate.org/" target="_blank" rel="noopener noreferrer" class="why-me" style="text-decoration: none;"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
-          </div>
+          <p class="tool-desc">تطبيق المراسلة الأكثر موثوقية عالمياً. يجمع بين التشفير القوي جداً والواجهة السهلة. يتيح الآن التواصل عبر أسماء المستخدمين لإخفاء الرقم.</p>
+          <a href="https://signal.org/" target="_blank" rel="noopener noreferrer" class="tool-btn">زيارة الموقع</a>
         </div>
 
       </div>
 
-    </div>
-  </section>
-
-  <!-- الإجراء النهائي (CTA) -->
-  <section style="padding-top: 0; padding-bottom: 20px;">
-    <div class="container">
-      <div class="about-cta reveal">
-        <h2>تحتاج مساعدة في اختيار إعدادات الأمان الخاصة بك؟</h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem;">أقدم استشارات تقنية متخصصة لتأمين شبكاتك وأجهزتك الشخصية والمؤسسية.</p>
-        <div class="btn-group" style="justify-content: center;">
-          <a href="/contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> طلب استشارة تقنية</a>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -256,7 +480,6 @@
       scrollBtn.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: "smooth" }); });
     }
     
-    // تحديد الرابط النشط 
     let currentPath = window.location.pathname.replace(/\/$/, "");
     if (currentPath === "") currentPath = "/";
     document.querySelectorAll('.nav-links a').forEach(link => {
