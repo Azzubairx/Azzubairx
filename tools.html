@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   
-  <!-- تحسينات الأمان (Security Meta Tags) -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
   <meta name="referrer" content="strict-origin-when-downgrade" />
   
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-N8294W9LHR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -34,147 +32,71 @@
   <link rel="stylesheet" href="/css/style.css" />
   
   <style>
-    /* =========================================
-       تنسيقات صفحة الأدوات (Techlore Style UX)
-       ========================================= */
-    .tools-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 2rem;
-        margin-bottom: 4rem;
-    }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
     
     .tool-card {
-        background: var(--bg-glass);
-        backdrop-filter: blur(16px);
-        border: 1px solid var(--border-glass);
-        border-radius: 20px;
-        padding: 1.8rem;
-        display: flex;
-        flex-direction: column;
+        background: var(--bg-glass); backdrop-filter: blur(16px);
+        border: 1px solid var(--border-glass); border-radius: 20px;
+        padding: 1.8rem; display: flex; flex-direction: column;
         box-shadow: var(--shadow-glass);
         transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .tool-card:hover {
-        transform: translateY(-5px);
-        border-color: var(--primary);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    .tool-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+
+    .tool-header { display: flex; align-items: center; gap: 15px; margin-bottom: 1.2rem; }
+    
+    .tool-icon {
+        font-size: 2.2rem; background: var(--bg-main); width: 60px; height: 60px;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 14px; border: 1px solid var(--border-glass); flex-shrink: 0;
     }
 
-    .tool-header {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 1.2rem;
+    /* نظام الأقنعة لسحب الشعارات الرسمية وتلوينها */
+    .brand-logo {
+        width: 35px; height: 35px;
+        background-color: currentColor;
+        -webkit-mask-size: contain; mask-size: contain;
+        -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+        -webkit-mask-position: center; mask-position: center;
     }
-    .tool-icon {
-        font-size: 2.2rem;
-        background: var(--bg-main);
-        width: 60px; height: 60px;
-        display: flex; align-items: center; justify-content: center;
-        border-radius: 14px;
-        border: 1px solid var(--border-glass);
-        flex-shrink: 0;
-    }
-    .tool-title {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .tool-title h3 {
-        font-size: 1.3rem;
-        color: var(--text-main);
-        margin-bottom: 4px;
-        font-weight: bold;
-    }
-    .tool-os {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        display: flex;
-        gap: 8px;
-        align-items: center;
-    }
+
+    .tool-title { display: flex; flex-direction: column; justify-content: center; }
+    .tool-title h3 { font-size: 1.3rem; color: var(--text-main); margin-bottom: 4px; font-weight: bold; }
+    .tool-os { font-size: 0.95rem; color: var(--text-muted); display: flex; gap: 8px; align-items: center; }
     .tool-os i { font-size: 1rem; }
 
-    /* أوسمة التصنيف (Badges) */
-    .tool-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 1.2rem;
-    }
-    .t-badge {
-        font-size: 0.8rem;
-        font-weight: bold;
-        padding: 4px 12px;
-        border-radius: 8px;
-    }
-    /* الألوان الدلالية لمستوى الصعوبة */
-    .b-level-1 { background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3); } /* مبتدئ */
-    .b-level-2 { background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); } /* متوسط */
-    .b-level-3 { background: rgba(239, 68, 68, 0.15); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.3); } /* متقدم */
-    
+    .tool-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.2rem; }
+    .t-badge { font-size: 0.8rem; font-weight: bold; padding: 4px 12px; border-radius: 8px; }
+    .b-level-1 { background: rgba(16, 185, 129, 0.15); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3); } 
+    .b-level-2 { background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3); } 
+    .b-level-3 { background: rgba(239, 68, 68, 0.15); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.3); } 
     .b-price { background: var(--bg-main); color: var(--text-main); border: 1px solid var(--border-glass); }
     .b-source { background: rgba(139, 92, 246, 0.15); color: #8B5CF6; border: 1px solid rgba(139, 92, 246, 0.3); }
 
-    .tool-desc {
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin-bottom: 1.5rem;
-        flex-grow: 1;
-    }
-
+    .tool-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; flex-grow: 1; }
+    
     .tool-btn {
-        width: 100%;
-        text-align: center;
-        padding: 12px;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 1rem;
-        background: var(--primary-glass);
-        color: var(--primary);
-        border: 1px solid var(--border-primary);
-        transition: all 0.3s ease;
-        display: flex; justify-content: center; align-items: center; gap: 8px;
+        background: transparent; border: 1px solid var(--border-glass); color: var(--text-main);
+        padding: 10px; border-radius: 12px; text-align: center; font-weight: bold;
+        transition: all 0.3s ease; display: flex; justify-content: center; align-items: center; gap: 8px;
     }
-    .tool-btn:hover {
-        background: var(--primary);
-        color: #fff;
-    }
-    /* تنسيق زر روابط الإحالة */
-    .tool-btn.affiliate {
-        background: linear-gradient(135deg, var(--primary), #8B5CF6);
-        color: #fff;
-        border: none;
-        box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
-    }
-    .tool-btn.affiliate:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
-    }
+    .tool-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+    
+    .tool-btn.affiliate { background: linear-gradient(135deg, var(--primary), #8B5CF6); color: #fff; border: none; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3); }
+    .tool-btn.affiliate:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5); }
     
     .last-updated {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--primary-glass);
-        color: var(--primary);
-        padding: 6px 16px;
-        border-radius: 50px;
-        font-size: 0.9rem;
-        font-weight: bold;
-        border: 1px solid var(--border-primary);
-        margin-bottom: 2rem;
+        display: inline-flex; align-items: center; gap: 8px; background: var(--primary-glass);
+        color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: 0.9rem;
+        font-weight: bold; border: 1px solid var(--border-primary); margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- شريط التنقل -->
   <nav id="navbar">
     <div class="container">
-      <a href="/index" class="logo">Azzubair</a>
+      <a href="/" class="logo">Azzubair</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="/">الرئيسية</a></li>
         <li><a href="/about">من أنا</a></li>
@@ -185,8 +107,7 @@
       </ul>
       <div class="nav-controls">
         <button class="theme-toggle" id="themeToggle" aria-label="تبديل الوضع"><i class="fas fa-moon"></i></button>
-        <a href="/en/tools" class="lang-switch" aria-label="English Version">EN</a>
-        <button class="hamburger" id="hamburger" aria-label="القائمة"><i class="fas fa-bars"></i></button>
+        <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
       </div>
     </div>
   </nav>
@@ -203,16 +124,14 @@
 
       <!-- إخلاء المسؤولية -->
       <div class="reveal" style="text-align: center;">
-        <div class="last-updated">
-          <i class="fas fa-sync-alt"></i> آخر تحديث: يوليو 2026
-        </div>
+        <div class="last-updated"><i class="fas fa-sync-alt"></i> آخر تحديث: يوليو 2026</div>
       </div>
       <div class="reveal" style="background: var(--bg-glass); border-right: 4px solid var(--primary); padding: 20px; border-radius: 12px; margin-bottom: 4rem; box-shadow: var(--shadow-glass);">
         <h4 style="color: var(--text-main); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
           <i class="fas fa-info-circle" style="color: var(--primary);"></i> إخلاء مسؤولية
         </h4>
         <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0;">
-          هذه القائمة تعكس تفضيلاتي الشخصية وتجربتي المهنية. التقنية تتطور بسرعة، وما هو آمن أو فعّال اليوم قد يتغير غداً. هذه التوصيات ليست بديلاً عن الاستشارة الأمنية المتخصصة. بعض الروابط قد تكون روابط إحالة تدعم عملي.
+          هذه القائمة تعكس تفضيلاتي الشخصية وتجربتي المهنية. التقنية تتطور بسرعة، وهذه التوصيات ليست بديلاً عن الاستشارة الأمنية المتخصصة. بعض الروابط قد تكون روابط إحالة تدعم عملي دون أي تكلفة إضافية عليك.
         </p>
       </div>
 
@@ -223,7 +142,9 @@
       <div class="tools-grid">
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #FB542B;"><i class="fab fa-brave"></i></div>
+            <div class="tool-icon" style="color: #FB542B;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/brave'); mask-image: url('https://cdn.simpleicons.org/brave');"></div>
+            </div>
             <div class="tool-title">
               <h3>Brave</h3>
               <div class="tool-os"><i class="fab fa-windows"></i><i class="fab fa-apple"></i><i class="fab fa-linux"></i><i class="fab fa-android"></i> Chromium</div>
@@ -233,57 +154,14 @@
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
           <p class="tool-desc">يقدم تجربة Chromium مألوفة مع الخصوصية والأمان المدمج بشكل افتراضي. المميزات المدمجة سهلة التعطيل ولا تؤثر على نقاط قوته.</p>
-          <a href="https://brave.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <a href="https://brave.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> الموقع الرسمي</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #FF7139;"><i class="fab fa-firefox-browser"></i></div>
-            <div class="tool-title">
-              <h3>Firefox</h3>
-              <div class="tool-os"><i class="fab fa-windows"></i><i class="fab fa-apple"></i><i class="fab fa-linux"></i><i class="fab fa-android"></i> Gecko</div>
+            <div class="tool-icon" style="color: #42C2DE;">
+              <i class="fas fa-feather" style="font-size: 2rem;"></i>
             </div>
-          </div>
-          <div class="tool-badges">
-            <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
-          </div>
-          <p class="tool-desc">أقوى بديل غير Chromium لسطح المكتب، مدعوم من Mozilla. خيار قوي بشكل افتراضي، وبالتصلب (Hardening) يصبح واحداً من الأفضل.</p>
-          <a href="https://www.mozilla.org/firefox/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
-        </div>
-
-        <div class="tool-card reveal">
-          <div class="tool-header">
-            <div class="tool-icon" style="color: #002B36;"><i class="fas fa-wolf-pack-battles"></i></div>
-            <div class="tool-title">
-              <h3>LibreWolf</h3>
-              <div class="tool-os"><i class="fab fa-windows"></i><i class="fab fa-apple"></i><i class="fab fa-linux"></i> Gecko</div>
-            </div>
-          </div>
-          <div class="tool-badges">
-            <span class="t-badge b-level-2">متوسط</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
-          </div>
-          <p class="tool-desc">نسخة Firefox مجتمعية تطبق معظم إعدادات التصلب الموصى بها بشكل افتراضي، مما يوفر عليك الإعدادات اليدوية. (سطح المكتب فقط).</p>
-          <a href="https://librewolf.net/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
-        </div>
-
-        <div class="tool-card reveal">
-          <div class="tool-header">
-            <div class="tool-icon" style="color: #7D4698;"><i class="fas fa-mask"></i></div>
-            <div class="tool-title">
-              <h3>Tor Browser</h3>
-              <div class="tool-os"><i class="fab fa-windows"></i><i class="fab fa-apple"></i><i class="fab fa-linux"></i><i class="fab fa-android"></i> Gecko</div>
-            </div>
-          </div>
-          <div class="tool-badges">
-            <span class="t-badge b-level-3">متقدم</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
-          </div>
-          <p class="tool-desc">يوجه حركتك عبر شبكة Tor، مما يجعله قوياً للخصوصية الكاملة والالتفاف على الرقابة. قد يؤدي إلى بطء الأداء وكسر بعض المواقع.</p>
-          <a href="https://www.torproject.org/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
-        </div>
-        
-        <div class="tool-card reveal">
-          <div class="tool-header">
-            <div class="tool-icon" style="color: #93C5FD;"><i class="fas fa-compass"></i></div>
             <div class="tool-title">
               <h3>Helium</h3>
               <div class="tool-os"><i class="fab fa-windows"></i><i class="fab fa-apple"></i><i class="fab fa-linux"></i></div>
@@ -293,7 +171,58 @@
             <span class="t-badge b-level-2">متوسط</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
           <p class="tool-desc">متصفح خفيف ومفتوح المصدر يركز على توفير تجربة تصفح سريعة وخالية من التشتيت مع احترام خصوصية المستخدم.</p>
-          <a href="#" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> الموقع الرسمي</a>
+        </div>
+
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #FF7139;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/firefoxbrowser'); mask-image: url('https://cdn.simpleicons.org/firefoxbrowser');"></div>
+            </div>
+            <div class="tool-title">
+              <h3>Firefox</h3>
+              <div class="tool-os"><i class="fab fa-windows"></i><i class="fab fa-apple"></i><i class="fab fa-linux"></i><i class="fab fa-android"></i> Gecko</div>
+            </div>
+          </div>
+          <div class="tool-badges">
+            <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
+          </div>
+          <p class="tool-desc">أقوى بديل غير Chromium لسطح المكتب. خيار قوي بشكل افتراضي، وبالتصلب (Hardening) يصبح واحداً من الأفضل عالمياً.</p>
+          <a href="https://www.mozilla.org/firefox/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> الموقع الرسمي</a>
+        </div>
+
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #00A4DE;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/librewolf'); mask-image: url('https://cdn.simpleicons.org/librewolf');"></div>
+            </div>
+            <div class="tool-title">
+              <h3>LibreWolf</h3>
+              <div class="tool-os"><i class="fab fa-windows"></i><i class="fab fa-apple"></i><i class="fab fa-linux"></i> Gecko</div>
+            </div>
+          </div>
+          <div class="tool-badges">
+            <span class="t-badge b-level-2">متوسط</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
+          </div>
+          <p class="tool-desc">نسخة مجتمعية من Firefox تطبق معظم إعدادات التصلب الموصى بها افتراضيًا، مما يوفر عليك الإعدادات اليدوية المعقدة.</p>
+          <a href="https://librewolf.net/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> الموقع الرسمي</a>
+        </div>
+
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #7D4698;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/torbrowser'); mask-image: url('https://cdn.simpleicons.org/torbrowser');"></div>
+            </div>
+            <div class="tool-title">
+              <h3>Tor Browser</h3>
+              <div class="tool-os"><i class="fab fa-windows"></i><i class="fab fa-apple"></i><i class="fab fa-linux"></i><i class="fab fa-android"></i> Gecko</div>
+            </div>
+          </div>
+          <div class="tool-badges">
+            <span class="t-badge b-level-3">متقدم</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
+          </div>
+          <p class="tool-desc">يوجه حركتك عبر شبكة Tor، مما يجعله قوياً للخصوصية الكاملة والالتفاف على الرقابة (مع التضحية بسرعة الأداء).</p>
+          <a href="https://www.torproject.org/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> الموقع الرسمي</a>
         </div>
       </div>
 
@@ -304,7 +233,9 @@
       <div class="tools-grid">
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #68BC71;"><i class="fas fa-shield-virus"></i></div>
+            <div class="tool-icon" style="color: #68BC71;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/adguard'); mask-image: url('https://cdn.simpleicons.org/adguard');"></div>
+            </div>
             <div class="tool-title">
               <h3>AdGuard</h3>
               <div class="tool-os">جميع المتصفحات</div>
@@ -313,13 +244,15 @@
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني/مدفوع</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">خيار موثوق لحجب الإعلانات والمتتبعات والتصيد الاحتيالي، خاصة لمستخدمي Safari الذين يريدون حجباً فعالاً بدون كسر المواقع.</p>
-          <a href="https://adguard.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> التحميل</a>
+          <p class="tool-desc">خيار موثوق وسهل لحجب الإعلانات والمتتبعات، ممتاز للمستخدمين الذين يريدون حجباً فعالاً بدون كسر المواقع.</p>
+          <a href="https://adguard.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-download"></i> التحميل</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #33C3F0;"><i class="fas fa-ghost"></i></div>
+            <div class="tool-icon" style="color: #33C3F0;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/ghostery'); mask-image: url('https://cdn.simpleicons.org/ghostery');"></div>
+            </div>
             <div class="tool-title">
               <h3>Ghostery</h3>
               <div class="tool-os">Firefox, Chrome, Edge</div>
@@ -328,13 +261,15 @@
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني/مدفوع</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">حاجب متتبعات وإعلانات بواجهة صديقة للمبتدئين. مؤشرات بصرية بسيطة لتتبع العناصر المحجوبة بوضوح.</p>
-          <a href="https://www.ghostery.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> التحميل</a>
+          <p class="tool-desc">حاجب متتبعات وإعلانات مفتوح المصدر بواجهة صديقة للمبتدئين. يعرض مؤشرات بصرية بسيطة لتتبع العناصر المحجوبة.</p>
+          <a href="https://www.ghostery.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-download"></i> التحميل</a>
         </div>
         
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #DE5833;"><i class="fas fa-search"></i></div>
+            <div class="tool-icon" style="color: #DE5833;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/duckduckgo'); mask-image: url('https://cdn.simpleicons.org/duckduckgo');"></div>
+            </div>
             <div class="tool-title">
               <h3>DuckDuckGo Privacy</h3>
               <div class="tool-os">جميع المتصفحات</div>
@@ -344,12 +279,14 @@
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
           <p class="tool-desc">إضافة مبسطة توفر حماية شاملة من التتبع وتعرض لك تقييماً لدرجة خصوصية الموقع الذي تزوره.</p>
-          <a href="https://duckduckgo.com/app" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> التحميل</a>
+          <a href="https://duckduckgo.com/app" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-download"></i> التحميل</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #800000;"><i class="fas fa-ban"></i></div>
+            <div class="tool-icon" style="color: #800000;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/ublockorigin'); mask-image: url('https://cdn.simpleicons.org/ublockorigin');"></div>
+            </div>
             <div class="tool-title">
               <h3>uBlock Origin</h3>
               <div class="tool-os">Firefox, Chrome, Edge, Safari</div>
@@ -358,23 +295,25 @@
           <div class="tool-badges">
             <span class="t-badge b-level-2">متوسط</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">إضافة قوية جداً لحجب الإعلانات والمحتوى الضار. قابلة للتخصيص بدرجة عالية، والإعدادات الافتراضية تعمل بشكل ممتاز.</p>
-          <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> التحميل</a>
+          <p class="tool-desc">أقوى إضافة لحجب الإعلانات والمحتوى الضار. خفيفة جداً على الموارد وقابلة للتخصيص بدرجة عالية.</p>
+          <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-download"></i> التحميل</a>
         </div>
         
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #800000;"><i class="fas fa-shield-alt"></i></div>
+            <div class="tool-icon" style="color: #800000;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/ublockorigin'); mask-image: url('https://cdn.simpleicons.org/ublockorigin');"></div>
+            </div>
             <div class="tool-title">
               <h3>uBlock Origin Lite</h3>
-              <div class="tool-os">Chrome, Safari (Manifest V3)</div>
+              <div class="tool-os">Chrome, Safari (MV3)</div>
             </div>
           </div>
           <div class="tool-badges">
             <span class="t-badge b-level-2">متوسط</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
           <p class="tool-desc">نسخة متوافقة مع قواعد (Manifest V3). توفر حجباً أقل من الإصدار الكامل لكنها تظل تحسناً معنوياً كبيراً.</p>
-          <a href="https://github.com/uBlockOrigin/uBlock-issues/wiki/uBlock-Origin-Lite" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> التحميل</a>
+          <a href="https://github.com/uBlockOrigin/uBlock-issues/wiki/uBlock-Origin-Lite" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-download"></i> التحميل</a>
         </div>
       </div>
 
@@ -385,7 +324,9 @@
       <div class="tools-grid">
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #FB542B;"><i class="fab fa-brave"></i></div>
+            <div class="tool-icon" style="color: #FB542B;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/brave'); mask-image: url('https://cdn.simpleicons.org/brave');"></div>
+            </div>
             <div class="tool-title">
               <h3>Brave Search</h3>
               <div class="tool-os">Web / محرك مستقل</div>
@@ -400,7 +341,9 @@
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #DE5833;"><i class="fas fa-search"></i></div>
+            <div class="tool-icon" style="color: #DE5833;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/duckduckgo'); mask-image: url('https://cdn.simpleicons.org/duckduckgo');"></div>
+            </div>
             <div class="tool-title">
               <h3>DuckDuckGo (DDG)</h3>
               <div class="tool-os">Web / محرك مجمع</div>
@@ -415,7 +358,9 @@
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #FFB71B;"><i class="fas fa-search"></i></div>
+            <div class="tool-icon" style="color: #FFB71B;">
+              <i class="fas fa-search" style="font-size: 2rem;"></i>
+            </div>
             <div class="tool-title">
               <h3>Kagi</h3>
               <div class="tool-os">Web / محرك مستقل</div>
@@ -430,7 +375,9 @@
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #10B981;"><i class="fas fa-server"></i></div>
+            <div class="tool-icon" style="color: #10B981;">
+              <i class="fas fa-globe" style="font-size: 2.2rem;"></i>
+            </div>
             <div class="tool-title">
               <h3>SearXNG</h3>
               <div class="tool-os">Web / محرك مجمع</div>
@@ -439,7 +386,7 @@
           <div class="tool-badges">
             <span class="t-badge b-level-2">متوسط</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">محرك مجمع مفتوح المصدر يسحب النتائج من عشرات المصادر بدون تتبع. قابل للاستضافة الذاتية أو عبر نسخ عامة.</p>
+          <p class="tool-desc">محرك مجمع مفتوح المصدر يسحب النتائج من عشرات المصادر بدون تتبع استعلاماتك. قابل للاستضافة الذاتية.</p>
           <a href="https://docs.searxng.org/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
         </div>
       </div>
@@ -451,7 +398,9 @@
       <div class="tools-grid">
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #000;"><i class="fas fa-server"></i></div>
+            <div class="tool-icon" style="color: var(--text-main);">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/nextdns'); mask-image: url('https://cdn.simpleicons.org/nextdns');"></div>
+            </div>
             <div class="tool-title">
               <h3>NextDNS</h3>
               <div class="tool-os">جميع الأجهزة</div>
@@ -460,13 +409,15 @@
           <div class="tool-badges">
             <span class="t-badge b-level-2">متوسط</span><span class="t-badge b-price">مجاني/مدفوع</span><span class="t-badge b-source">خاص</span>
           </div>
-          <p class="tool-desc">DNS مشفر وقابل للتخصيص بالكامل. يتيح لك بناء قوائمك الخاصة والتصفية عبر جميع أجهزتك بسهولة تامة.</p>
-          <a href="https://nextdns.io/?from=358r3ctt" target="_blank" rel="noopener noreferrer" class="tool-btn affiliate"><i class="fas fa-hand-holding-heart"></i> استخدام (رابط إحالة)</a>
+          <p class="tool-desc">DNS مشفر وقابل للتخصيص بالكامل. يتيح لك بناء قوائمك الخاصة والتصفية وحجب الإعلانات عبر جميع أجهزتك بسهولة تامة.</p>
+          <a href="https://nextdns.io/?from=358r3ctt" target="_blank" rel="noopener noreferrer" class="tool-btn affiliate"><i class="fas fa-link"></i> استخدام (رابط إحالة)</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #68BC71;"><i class="fas fa-server"></i></div>
+            <div class="tool-icon" style="color: #68BC71;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/adguard'); mask-image: url('https://cdn.simpleicons.org/adguard');"></div>
+            </div>
             <div class="tool-title">
               <h3>AdGuard DNS</h3>
               <div class="tool-os">جميع الأجهزة</div>
@@ -481,7 +432,9 @@
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #0055A5;"><i class="fas fa-shield-alt"></i></div>
+            <div class="tool-icon" style="color: #0055A5;">
+              <i class="fas fa-shield-alt" style="font-size: 2rem;"></i>
+            </div>
             <div class="tool-title">
               <h3>Quad9</h3>
               <div class="tool-os">جميع الأجهزة</div>
@@ -502,7 +455,9 @@
       <div class="tools-grid">
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #6D28D9;"><i class="fas fa-shield-alt"></i></div>
+            <div class="tool-icon" style="color: #6D28D9;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/protonvpn'); mask-image: url('https://cdn.simpleicons.org/protonvpn');"></div>
+            </div>
             <div class="tool-title">
               <h3>ProtonVPN</h3>
               <div class="tool-os"><i class="fab fa-windows"></i><i class="fab fa-apple"></i><i class="fab fa-linux"></i><i class="fab fa-android"></i></div>
@@ -511,13 +466,15 @@
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني/مدفوع</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">موثوق ومراجع من نظام Proton. يقدم طبقة مجانية سخية—بدون حدود بيانات وبدون إعلانات.</p>
-          <a href="https://protonvpn.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <p class="tool-desc">VPN موثوق ومراجع ومفتوح المصدر من نظام Proton مع طبقة مجانية سخية—بدون حدود بيانات، بدون إعلانات.</p>
+          <a href="https://protonvpn.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> الموقع الرسمي</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #00A6DF;"><i class="fas fa-wind"></i></div>
+            <div class="tool-icon" style="color: #00ADEF;">
+              <i class="fas fa-wind" style="font-size: 2rem;"></i>
+            </div>
             <div class="tool-title">
               <h3>Windscribe</h3>
               <div class="tool-os"><i class="fab fa-windows"></i><i class="fab fa-apple"></i><i class="fab fa-linux"></i><i class="fab fa-android"></i></div>
@@ -526,63 +483,78 @@
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني/مدفوع</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">يقدم طبقة مجانية سخية وقيمة قوية للخطط المدفوعة، مع جدار حماية قابل للتكوين ועملاء مفتوحة المصدر.</p>
-          <a href="https://windscribe.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <p class="tool-desc">يقدم طبقة مجانية سخية، مع جدار حماية قابل للتكوين. خيار قوي للمستخدمين الذين يريدون مرونة بدون سعر مرتفع.</p>
+          <a href="https://windscribe.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> الموقع الرسمي</a>
         </div>
       </div>
 
-      <!-- ================= المراسلة والبريد ================= -->
-      <h3 class="category-title reveal"><i class="fas fa-comment-dots"></i> المراسلة والبريد (Messengers & Email)</h3>
+      <!-- ================= تطبيقات المراسلة ================= -->
+      <h3 class="category-title reveal"><i class="fas fa-comments"></i> تطبيقات المراسلة</h3>
       <div class="tools-grid">
-        
-        <div class="tool-card reveal">
-          <div class="tool-header">
-            <div class="tool-icon" style="color: #000;"><i class="fas fa-comments"></i></div>
-            <div class="tool-title">
-              <h3>SimpleX</h3>
-              <div class="tool-os"><i class="fab fa-apple"></i><i class="fab fa-android"></i> Desktop</div>
-            </div>
-          </div>
-          <div class="tool-badges">
-            <span class="t-badge b-level-3">متقدم</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
-          </div>
-          <p class="tool-desc">لا يتطلب رقم هاتف أو بريد إلكتروني. من الخيارات الوحيدة للمراسلة بدون معرّف دائم مرتبط بك. لامركزي ومراجع.</p>
-          <a href="https://simplex.chat/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
-        </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #3A76F0;"><i class="fas fa-comment-dots"></i></div>
+            <div class="tool-icon" style="color: #3A76F0;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/signal'); mask-image: url('https://cdn.simpleicons.org/signal');"></div>
+            </div>
             <div class="tool-title">
               <h3>Signal</h3>
-              <div class="tool-os"><i class="fab fa-apple"></i><i class="fab fa-android"></i> Desktop</div>
+              <div class="tool-os"><i class="fab fa-windows"></i> <i class="fab fa-apple"></i> <i class="fab fa-android"></i></div>
             </div>
           </div>
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">أكثر خدمات المراسلة الخاصة موثوقية، يجمع التشفير القوي مع واجهة مألوفة. يتيح الآن التواصل دون الكشف عن رقمك.</p>
-          <a href="https://signal.org/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <p class="tool-desc">أكثر تطبيقات المراسلة موثوقية عالمياً. يجمع بين التشفير القوي جداً والواجهة السهلة، ويتيح التواصل عبر أسماء المستخدمين.</p>
+          <a href="https://signal.org/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-download"></i> التحميل</a>
         </div>
-
+        
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #24A1DE;"><i class="fab fa-telegram"></i></div>
+            <div class="tool-icon" style="color: #24A1DE;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/telegram'); mask-image: url('https://cdn.simpleicons.org/telegram');"></div>
+            </div>
             <div class="tool-title">
               <h3>Telegram</h3>
-              <div class="tool-os"><i class="fab fa-apple"></i><i class="fab fa-android"></i> Desktop</div>
+              <div class="tool-os"><i class="fab fa-windows"></i> <i class="fab fa-apple"></i> <i class="fab fa-android"></i></div>
             </div>
           </div>
           <div class="tool-badges">
-            <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">خوادم مغلقة</span>
+            <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني/مدفوع</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">تطبيق شهير بواجهة رائعة، لكن لاحظ أن المحادثات العادية غير مشفرة (E2EE) افتراضيًا (فقط المحادثات السرية في الهاتف).</p>
-          <a href="https://telegram.org/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <p class="tool-desc">تطبيق مرن وغني بالمميزات. غير مشفر (E2EE) بشكل افتراضي، لكنه الأفضل لإدارة المجتمعات وسرعة نقل الملفات الضخمة.</p>
+          <a href="https://telegram.org/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-download"></i> التحميل</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #6D28D9;"><i class="fas fa-envelope"></i></div>
+            <div class="tool-icon" style="color: #000;">
+              <i class="fas fa-comment-slash" style="font-size: 2rem;"></i>
+            </div>
+            <div class="tool-title">
+              <h3>SimpleX</h3>
+              <div class="tool-os"><i class="fab fa-windows"></i> <i class="fab fa-apple"></i> <i class="fab fa-android"></i></div>
+            </div>
+          </div>
+          <div class="tool-badges">
+            <span class="t-badge b-level-3">متقدم</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
+          </div>
+          <p class="tool-desc">أداة مراسلة لا مركزية لا تتطلب رقم هاتف أو بريد أو حتى اسم مستخدم دائم. الأفضل للسرية التامة والمحادثات الحساسة.</p>
+          <a href="https://simplex.chat/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-download"></i> التحميل</a>
+        </div>
+
+      </div>
+
+      <!-- ================= الإيميل و Aliasing ================= -->
+      <h3 class="category-title reveal"><i class="fas fa-envelope-open-text"></i> البريد وإخفاء الهوية (Aliasing)</h3>
+      <p style="color: var(--text-muted); margin-bottom: 2rem; margin-top: -1rem;">تتيح لك استخدام الخدمات دون مشاركة بريدك الحقيقي لتقليل أضرار تسريب البيانات.</p>
+
+      <div class="tools-grid">
+        <div class="tool-card reveal">
+          <div class="tool-header">
+            <div class="tool-icon" style="color: #6D28D9;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/protonmail'); mask-image: url('https://cdn.simpleicons.org/protonmail');"></div>
+            </div>
             <div class="tool-title">
               <h3>Proton Mail</h3>
               <div class="tool-os"><i class="fab fa-windows"></i><i class="fab fa-apple"></i><i class="fab fa-android"></i> Web</div>
@@ -591,19 +563,15 @@
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني/مدفوع</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">البريد لم يُبنَ للخصوصية، لكن Proton يوفر تشفير الوصول الصفري وتشفير (E2EE) بين مستخدميه للحفاظ على أمان بياناتك.</p>
-          <a href="https://pr.tn/ref/9MWY2K9S" target="_blank" rel="noopener noreferrer" class="tool-btn affiliate"><i class="fas fa-hand-holding-heart"></i> استخدام (رابط إحالة)</a>
+          <p class="tool-desc">تشفير وصول صفري وتشفير (E2EE) بين مستخدميه للحفاظ على أمان بياناتك ومراسلاتك الحساسة. مقر الخوادم في سويسرا.</p>
+          <a href="https://pr.tn/ref/9MWY2K9S" target="_blank" rel="noopener noreferrer" class="tool-btn affiliate"><i class="fas fa-link"></i> رابط إحالة (دعم)</a>
         </div>
-      </div>
 
-      <!-- ================= Aliasing ================= -->
-      <h3 class="category-title reveal"><i class="fas fa-user-ninja"></i> إخفاء الهوية (Aliasing Services)</h3>
-      <p style="color: var(--text-muted); margin-bottom: 2rem; margin-top: -1rem;">تتيح لك استخدام الخدمات دون مشاركة معلوماتك الحقيقية لتقليل أضرار تسريب البيانات.</p>
-      
-      <div class="tools-grid">
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #DE5833;"><i class="fas fa-at"></i></div>
+            <div class="tool-icon" style="color: #DE5833;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/duckduckgo'); mask-image: url('https://cdn.simpleicons.org/duckduckgo');"></div>
+            </div>
             <div class="tool-title">
               <h3>DuckDuckGo Mail</h3>
               <div class="tool-os">Web</div>
@@ -612,28 +580,32 @@
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">خاص</span>
           </div>
-          <p class="tool-desc">خدمة تتيح لك إنشاء عناوين بريد منفردة لكل موقع، مما يحافظ على بريدك الحقيقي خاصاً ويمنع التتبع عبر الإيميل.</p>
+          <p class="tool-desc">خدمة تتيح لك إنشاء عناوين بريد منفردة لكل موقع، مما يحافظ على بريدك الحقيقي خاصاً ويمنع التتبع الخفي عبر الإيميل.</p>
           <a href="https://duckduckgo.com/email" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #6D28D9;"><i class="fas fa-key"></i></div>
+            <div class="tool-icon" style="color: #6D28D9;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/proton'); mask-image: url('https://cdn.simpleicons.org/proton');"></div>
+            </div>
             <div class="tool-title">
-              <h3>Proton Pass</h3>
+              <h3>Proton Pass (Aliasing)</h3>
               <div class="tool-os">جميع الأنظمة</div>
             </div>
           </div>
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني/مدفوع</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">مدير كلمات مرور مدمج معه خدمة (Aliasing) مدعومة من SimpleLogin. الطريقة الأكثر تكاملاً إذا كنت في نظام Proton.</p>
-          <a href="https://pr.tn/ref/9MWY2K9S" target="_blank" rel="noopener noreferrer" class="tool-btn affiliate"><i class="fas fa-hand-holding-heart"></i> استخدام (رابط إحالة)</a>
+          <p class="tool-desc">مدير كلمات مرور مدمج معه خدمة (Aliasing) مدعومة من SimpleLogin. الطريقة الأكثر تكاملاً لإنشاء إيميلات وهمية.</p>
+          <a href="https://pr.tn/ref/9MWY2K9S" target="_blank" rel="noopener noreferrer" class="tool-btn affiliate"><i class="fas fa-link"></i> رابط إحالة (دعم)</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #10B981;"><i class="fas fa-user-secret"></i></div>
+            <div class="tool-icon" style="color: #2D3748;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/addyio'); mask-image: url('https://cdn.simpleicons.org/addyio');"></div>
+            </div>
             <div class="tool-title">
               <h3>addy.io</h3>
               <div class="tool-os"><i class="fab fa-apple"></i><i class="fab fa-android"></i> Web</div>
@@ -642,19 +614,21 @@
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني/مدفوع</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">خدمة (Aliasing) مفتوحة المصدر بواحدة من أسخى الطبقات المجانية (أسماء مستعارة غير محدودة). البديل الأساسي لـ SimpleLogin.</p>
+          <p class="tool-desc">خدمة (Aliasing) مفتوحة المصدر بواحدة من أسخى الطبقات المجانية (أسماء مستعارة غير محدودة). البديل القوي لـ SimpleLogin.</p>
           <a href="https://addy.io/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
         </div>
       </div>
 
       <!-- ================= كلمات المرور و 2FA ================= -->
-      <h3 class="category-title reveal"><i class="fas fa-unlock-alt"></i> كلمات المرور والمصادقة (Passwords & 2FA)</h3>
-      <p style="color: var(--text-muted); margin-bottom: 2rem; margin-top: -1rem;">إعادة استخدام كلمات المرور هو أكبر مخاطر الأمان. استخدم مدير كلمات مرور قوي وموثوق.</p>
+      <h3 class="category-title reveal"><i class="fas fa-key"></i> كلمات المرور والمصادقة (Passwords & 2FA)</h3>
+      <p style="color: var(--text-muted); margin-bottom: 2rem; margin-top: -1rem;">إعادة استخدام كلمات المرور هو أكبر مخاطر الأمان. استخدم مديراً قوياً وموثوقاً.</p>
 
       <div class="tools-grid">
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #175DDC;"><i class="fas fa-shield-alt"></i></div>
+            <div class="tool-icon" style="color: #175DDC;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/bitwarden'); mask-image: url('https://cdn.simpleicons.org/bitwarden');"></div>
+            </div>
             <div class="tool-title">
               <h3>Bitwarden</h3>
               <div class="tool-os">جميع الأنظمة</div>
@@ -663,43 +637,49 @@
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني/مدفوع</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">مدير كلمات مرور سحابي موثوق مع تشفير (Zero-knowledge). يمكنك الوصول للخزنة فقط. يدعم الاستضافة الذاتية.</p>
+          <p class="tool-desc">مدير كلمات مرور سحابي موثوق مع تشفير (Zero-knowledge). يمكنك الوصول للخزنة فقط. يدعم الاستضافة الذاتية للبيانات.</p>
           <a href="https://bitwarden.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #000;"><i class="fas fa-lock"></i></div>
+            <div class="tool-icon" style="color: #68BC71;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/keepassxc'); mask-image: url('https://cdn.simpleicons.org/keepassxc');"></div>
+            </div>
             <div class="tool-title">
-              <h3>KeePass</h3>
+              <h3>KeePass / KeePassXC</h3>
               <div class="tool-os"><i class="fab fa-windows"></i><i class="fab fa-linux"></i> Local</div>
             </div>
           </div>
           <div class="tool-badges">
             <span class="t-badge b-level-3">متقدم</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">مدير كلمات مرور محلي بالكامل. يحفظ بياناتك في ملف مشفر على جهازك فقط للحصول على أقصى درجات التحكم والأمان.</p>
-          <a href="https://keepass.info/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <p class="tool-desc">مدير كلمات مرور محلي بالكامل. يحفظ بياناتك في ملف مشفر على جهازك فقط (Offline) للحصول على أقصى درجات التحكم والأمان.</p>
+          <a href="https://keepassxc.org/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #6D28D9;"><i class="fas fa-qrcode"></i></div>
+            <div class="tool-icon" style="color: #6D28D9;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/proton'); mask-image: url('https://cdn.simpleicons.org/proton');"></div>
+            </div>
             <div class="tool-title">
-              <h3>Proton Auth (Pass)</h3>
+              <h3>Proton Auth (2FA)</h3>
               <div class="tool-os"><i class="fab fa-apple"></i><i class="fab fa-android"></i></div>
             </div>
           </div>
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">تطبيق مصادقة ثنائية (2FA) مدمج بأمان عالي، يوفر مزامنة مشفرة لرموز الدخول لتجنب فقدانها عند ضياع الهاتف.</p>
-          <a href="https://proton.me/pass" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <p class="tool-desc">تطبيق مصادقة ثنائية مدمج بأمان عالي، يوفر مزامنة مشفرة لرموز الدخول لتجنب فقدانها بشكل كارثي عند ضياع الهاتف.</p>
+          <a href="https://proton.me/pass" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> التحميل</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #EF4444;"><i class="fas fa-mobile-alt"></i></div>
+            <div class="tool-icon" style="color: #EF4444;">
+              <i class="fas fa-fingerprint" style="font-size: 2rem;"></i>
+            </div>
             <div class="tool-title">
               <h3>2FAS</h3>
               <div class="tool-os"><i class="fab fa-apple"></i><i class="fab fa-android"></i></div>
@@ -708,8 +688,8 @@
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
-          <p class="tool-desc">تطبيق مصادقة ثنائية ممتاز، لا يتطلب إنشاء حساب، يعمل دون اتصال بالإنترنت، ويدعم النسخ الاحتياطي السحابي المشفر.</p>
-          <a href="https://2fas.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <p class="tool-desc">تطبيق مصادقة ثنائية ممتاز، لا يتطلب إنشاء حساب، يعمل دون اتصال بالإنترنت (Offline)، ويدعم النسخ الاحتياطي السحابي المشفر.</p>
+          <a href="https://2fas.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> التحميل</a>
         </div>
       </div>
 
@@ -719,22 +699,26 @@
         
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #000;"><i class="fab fa-linux"></i></div>
+            <div class="tool-icon" style="color: var(--text-main);">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/linux'); mask-image: url('https://cdn.simpleicons.org/linux');"></div>
+            </div>
             <div class="tool-title">
               <h3>Linux (Distrochooser)</h3>
-              <div class="tool-os">Desktop</div>
+              <div class="tool-os">Web Tool</div>
             </div>
           </div>
           <div class="tool-badges">
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">أداة مساعدة</span>
           </div>
           <p class="tool-desc">إذا كنت متردداً في اختيار التوزيعة الأنسب لك من لينكس، هذه الأداة الرائعة تطرح عليك بضعة أسئلة وتقترح التوزيعة المثالية.</p>
-          <a href="https://distrochooser.de/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> تجربة الأداة</a>
+          <a href="https://distrochooser.de/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-mouse-pointer"></i> تجربة الأداة</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #E95420;"><i class="fab fa-ubuntu"></i></div>
+            <div class="tool-icon" style="color: #E95420;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/ubuntu'); mask-image: url('https://cdn.simpleicons.org/ubuntu');"></div>
+            </div>
             <div class="tool-title">
               <h3>Ubuntu</h3>
               <div class="tool-os">Desktop / Server</div>
@@ -744,12 +728,14 @@
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
           <p class="tool-desc">توزيعة لينكس الأكثر شهرة. تتميز بسهولة التثبيت، دعم فني مجتمعي ضخم، وممتازة كأول خطوة للانتقال من الويندوز.</p>
-          <a href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <a href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> الموقع الرسمي</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #08AEEA;"><i class="fas fa-compact-disc"></i></div>
+            <div class="tool-icon" style="color: #08AEEA;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/zorin'); mask-image: url('https://cdn.simpleicons.org/zorin');"></div>
+            </div>
             <div class="tool-title">
               <h3>Zorin OS</h3>
               <div class="tool-os">Desktop</div>
@@ -759,12 +745,14 @@
             <span class="t-badge b-level-1">مبتدئ</span><span class="t-badge b-price">مجاني/مدفوع</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
           <p class="tool-desc">توزيعة صُممت خصيصاً لتكون البديل الأسهل والأجمل لمستخدمي Windows و macOS، توفر واجهة مألوفة جداً وأداءً سريعاً.</p>
-          <a href="https://zorin.com/os/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <a href="https://zorin.com/os/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> الموقع الرسمي</a>
         </div>
 
         <div class="tool-card reveal">
           <div class="tool-header">
-            <div class="tool-icon" style="color: #51A2DA;"><i class="fab fa-fedora"></i></div>
+            <div class="tool-icon" style="color: #51A2DA;">
+              <div class="brand-logo" style="-webkit-mask-image: url('https://cdn.simpleicons.org/fedora'); mask-image: url('https://cdn.simpleicons.org/fedora');"></div>
+            </div>
             <div class="tool-title">
               <h3>Fedora</h3>
               <div class="tool-os">Desktop / Workstation</div>
@@ -774,7 +762,7 @@
             <span class="t-badge b-level-2">متوسط</span><span class="t-badge b-price">مجاني</span><span class="t-badge b-source">مفتوح المصدر</span>
           </div>
           <p class="tool-desc">توزيعة قوية جداً ومدعومة من Red Hat. تركز على تقديم أحدث التقنيات البرمجية أولاً بأول مع الحفاظ على استقرار النظام.</p>
-          <a href="https://fedoraproject.org/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> زيارة الموقع</a>
+          <a href="https://fedoraproject.org/" target="_blank" rel="noopener noreferrer" class="tool-btn"><i class="fas fa-external-link-alt"></i> الموقع الرسمي</a>
         </div>
 
       </div>
